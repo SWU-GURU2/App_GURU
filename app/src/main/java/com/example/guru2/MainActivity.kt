@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     var auth: FirebaseAuth ?= null
     private lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var mealButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(logoutIntent)
         }
 
+        mealButton = findViewById(R.id.mealButton)
+
+        mealButton.setOnClickListener {
+            val intent = Intent(this, MealWriteActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

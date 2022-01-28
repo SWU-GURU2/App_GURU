@@ -36,7 +36,7 @@ class MealWriteActivity : AppCompatActivity() {
         calendarWrite = findViewById(R.id.calendarWrite)
         timeWrite = findViewById(R.id.timeWrite)
         timeWriteButton = findViewById(R.id.timeWriteButton)
-        tvCalWrite = findViewById(R.id.tvCalWrite)
+        tvCalWrite = findViewById(R.id.tvCalCheck)
         tvTimeWrite = findViewById(R.id.tvTimeWrite)
         calBackButton = findViewById(R.id.calBackButton)
         editImage = findViewById(R.id.editImage)
@@ -71,6 +71,7 @@ class MealWriteActivity : AppCompatActivity() {
                 timeWriteButton.visibility = View.VISIBLE
                 timeWrite.visibility = View.VISIBLE
                 calBackButton.visibility = View.VISIBLE
+                tvCalWrite.visibility = View.VISIBLE
             }
         }
 
@@ -79,6 +80,8 @@ class MealWriteActivity : AppCompatActivity() {
             calWriteButton.visibility = View.VISIBLE
             timeWriteButton.visibility = View.INVISIBLE
             timeWrite.visibility = View.INVISIBLE
+            tvCalWrite.visibility = View.INVISIBLE
+            tvTimeWrite.visibility = View.INVISIBLE
             calBackButton.visibility = View.INVISIBLE
             editImage.visibility = View.INVISIBLE
             editTextFood.visibility = View.INVISIBLE

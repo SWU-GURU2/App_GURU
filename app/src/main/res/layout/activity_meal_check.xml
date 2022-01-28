@@ -33,12 +33,26 @@
         android:id="@+id/calCheckButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="270dp"
-        android:layout_marginBottom="240dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginBottom="230dp"
         android:backgroundTint="@color/main_blue"
         android:text="날짜 선택"
         android:textColor="#FFFFFF"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvCalCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="230dp"
+        android:text="0000년 00월 00일"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />

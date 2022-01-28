@@ -105,28 +105,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="43dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="268dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/w_empty" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="43dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="172dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/w_full" />
-
     <EditText
         android:id="@+id/editTextNumber"
         android:layout_width="126dp"
@@ -155,22 +133,13 @@
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="62dp"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="337dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+        android:layout_width="60dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="144dp"
+        android:button="@drawable/watercheckbox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

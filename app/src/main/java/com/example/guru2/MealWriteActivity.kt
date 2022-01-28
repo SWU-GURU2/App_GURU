@@ -1,6 +1,7 @@
 package com.example.guru2
 
 import android.content.Intent
+import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -9,6 +10,8 @@ import android.view.View
 import android.widget.*
 
 class MealWriteActivity : AppCompatActivity() {
+    lateinit var MealdbManager: MealDBManager
+    lateinit var sqlitedb: SQLiteDatabase
 
     lateinit var calWriteButton: Button
     lateinit var calendarWrite: CalendarView
@@ -31,6 +34,8 @@ class MealWriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meal_write)
+
+        MealdbManager = MealDBManager(this, "mealDB", null, 1)
 
         calWriteButton = findViewById(R.id.calWriteButton)
         calendarWrite = findViewById(R.id.calendarWrite)
@@ -73,6 +78,52 @@ class MealWriteActivity : AppCompatActivity() {
                 calBackButton.visibility = View.VISIBLE
                 tvCalWrite.visibility = View.VISIBLE
             }
+            timeWrite.setOnTimeChangedListener { picker, hour, minute ->
+                selectHour = hour
+                selectMinute = minute
+                timeWriteButton.setOnClickListener {
+                    if (selectHour < 10) {
+                        if (selectMinute < 10) {
+                            tvTimeWrite.text =
+                                    "0" + selectHour.toString() + "시" + " " + "0" + selectMinute.toString() + "분"
+                        } else {
+                            tvTimeWrite.text =
+                                    "0" + selectHour.toString() + "시" + " " + selectMinute.toString() + "분"
+                        }
+                    } else {
+                        if (selectMinute < 10) {
+                            tvTimeWrite.text =
+                                    selectHour.toString() + "시" + " " + "0" + selectMinute.toString() + "분"
+                        } else {
+                            tvTimeWrite.text =
+                                    selectHour.toString() + "시" + " " + selectMinute.toString() + "분"
+                        }
+                    }
+                    tvCalWrite.visibility = View.VISIBLE
+                    tvTimeWrite.visibility = View.VISIBLE
+                    editImage.visibility = View.VISIBLE
+                    editTextFood.visibility = View.VISIBLE
+                    editTextKcal.visibility = View.VISIBLE
+                    writeButton.visibility = View.VISIBLE
+                }
+            }
+            writeButton.setOnClickListener {
+                var str_year: String = selectYear.toString()
+                var str_month: String = selectMonth.toString()
+                var str_date: String = selectDate.toString()
+                var str_hour: String = selectHour.toString()
+                var str_minute: String = selectMinute.toString()
+                var str_food: String = editTextFood.text.toString()
+                var str_kcal:String = editTextKcal.text.toString()
+
+                sqlitedb = MealdbManager.writableDatabase
+                sqlitedb.execSQL("INSERT INTO meal VALUES(" +str_year+", " +str_month+", " +str_date+", " +str_hour+", " +str_minute+", '" +str_food+"', " +str_kcal+")")
+                sqlitedb.close()
+
+                Toast.makeText(applicationContext, "입력 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, MealChoiceActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         calBackButton.setOnClickListener {
@@ -88,42 +139,6 @@ class MealWriteActivity : AppCompatActivity() {
             editTextKcal.visibility = View.INVISIBLE
             writeButton.visibility = View.INVISIBLE
 
-        }
-
-        timeWrite.setOnTimeChangedListener { picker, hour, minute ->
-            selectHour = hour
-            selectMinute = minute
-            timeWriteButton.setOnClickListener {
-                if (selectHour < 10) {
-                    if (selectMinute < 10) {
-                        tvTimeWrite.text =
-                            "0" + selectHour.toString() + "시" + " " + "0" + selectMinute.toString() + "분"
-                    } else {
-                        tvTimeWrite.text =
-                            "0" + selectHour.toString() + "시" + " " + selectMinute.toString() + "분"
-                    }
-                } else {
-                    if (selectMinute < 10) {
-                        tvTimeWrite.text =
-                            selectHour.toString() + "시" + " " + "0" + selectMinute.toString() + "분"
-                    } else {
-                        tvTimeWrite.text =
-                            selectHour.toString() + "시" + " " + selectMinute.toString() + "분"
-                    }
-                }
-                tvCalWrite.visibility = View.VISIBLE
-                tvTimeWrite.visibility = View.VISIBLE
-                editImage.visibility = View.VISIBLE
-                editTextFood.visibility = View.VISIBLE
-                editTextKcal.visibility = View.VISIBLE
-                writeButton.visibility = View.VISIBLE
-            }
-        }
-
-        writeButton.setOnClickListener {
-            Toast.makeText(applicationContext, "입력 완료되었습니다.", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MealCheckActivity::class.java)
-            startActivity(intent)
         }
     }
 
@@ -155,7 +170,7 @@ class MealWriteActivity : AppCompatActivity() {
                 return true
             }
             R.id.meal -> {
-                val intent = Intent(this, MealCheckActivity::class.java)
+                val intent = Intent(this, MealChoiceActivity::class.java)
                 startActivity(intent)
                 return true
             }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".WaterEdit"
     android:background="@drawable/wateredit_bg">
 
     <Button
@@ -171,4 +172,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

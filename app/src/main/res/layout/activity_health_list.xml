@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HealthListActivity">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="421dp"
+        android:layout_height="724dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/healthlist" />
+
+    <TextView
+        android:id="@+id/todayHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="42dp"
+        android:text="오늘의 운동"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/healthMini"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
+        android:text="오늘의 운동 시간을 입력해주세요"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todayHealth" />
+
+    <Button
+        android:id="@+id/calenderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="36dp"
+        android:backgroundTint="#8DE4FF"
+        android:text="날짜 선택"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/exercise1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="63dp"
+        android:text="가슴 운동"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/healthMini"
+        app:layout_constraintTop_toBottomOf="@+id/healthMini" />
+
+    <TextView
+        android:id="@+id/exercise2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:layout_marginBottom="89dp"
+        android:text="팔 운동"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exercise3"
+        app:layout_constraintStart_toStartOf="@+id/exercise1"
+        app:layout_constraintTop_toTopOf="@+id/exercise1" />
+
+    <TextView
+        android:id="@+id/exercise3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:layout_marginBottom="176dp"
+        android:text="어깨ㆍ등 운동"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exercise4"
+        app:layout_constraintStart_toStartOf="@+id/exercise5"
+        app:layout_constraintTop_toTopOf="@+id/exercise1" />
+
+    <TextView
+        android:id="@+id/exercise4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
+        android:text="복근 운동"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/exercise1"
+        app:layout_constraintStart_toStartOf="@+id/exercise2" />
+
+    <TextView
+        android:id="@+id/exercise5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="88dp"
+        android:text="다리 운동"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/exercise4"
+        app:layout_constraintStart_toStartOf="@+id/exercise4"
+        app:layout_constraintTop_toTopOf="@+id/exercise3" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:hint="운동시간 입력"
+        app:layout_constraintEnd_toEndOf="@+id/textView22"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/healthMini" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="운동시간 입력"
+        app:layout_constraintBaseline_toBaselineOf="@+id/exercise2"
+        app:layout_constraintEnd_toEndOf="@+id/textView24"
+        app:layout_constraintStart_toStartOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="87dp"
+        android:hint="운동시간 입력"
+        app:layout_constraintBottom_toBottomOf="@+id/textView25"
+        app:layout_constraintEnd_toEndOf="@+id/textView25"
+        app:layout_constraintStart_toStartOf="@+id/textView25"
+        app:layout_constraintTop_toTopOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="51dp"
+        android:layout_marginBottom="60dp"
+        android:hint="운동시간 입력"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="운동시간 입력"
+        app:layout_constraintBaseline_toBaselineOf="@+id/exercise3"
+        app:layout_constraintEnd_toEndOf="@+id/textView23"
+        app:layout_constraintStart_toStartOf="@+id/textView23" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

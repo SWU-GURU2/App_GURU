@@ -88,7 +88,8 @@
         android:text="하루 권장 음수량은 2L이며 활동량, 질병 유무, 체질, 나이, 날씨에 따라 달라집니다."
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#45C7EF"/>
 
     <Button
         android:id="@+id/button7"

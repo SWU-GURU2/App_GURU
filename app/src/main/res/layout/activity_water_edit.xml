@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="80dp"
-        android:layout_height="0dp"
+        android:layout_width="82dp"
+        android:layout_height="37dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
         android:layout_marginBottom="72dp"
@@ -52,6 +52,7 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="96dp"
         android:text="몇 잔을 마셨나요?"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +65,7 @@
         android:layout_marginStart="108dp"
         android:layout_marginTop="360dp"
         android:text="ml로 기록하기"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +95,7 @@
         android:textColor="#45C7EF"/>
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/resultButton"
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginStart="160dp"
@@ -106,12 +108,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/water_ml"
         android:layout_width="126dp"
         android:layout_height="45dp"
         android:layout_marginTop="400dp"
         android:ems="10"
         android:inputType="number"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -126,6 +130,7 @@
         android:layout_marginStart="272dp"
         android:layout_marginTop="408dp"
         android:text="ml"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,9 +140,21 @@
         android:id="@+id/checkBox"
         android:layout_width="60dp"
         android:layout_height="78dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginStart="92dp"
         android:layout_marginTop="144dp"
         android:button="@drawable/watercheckbox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/B"
+        android:layout_width="36dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="400dp"
+        android:text="Button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

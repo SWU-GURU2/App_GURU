@@ -86,7 +86,7 @@ class MeditateActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.mental->{
-                val MentalIntent= Intent(this,MainActivity::class.java)
+                val MentalIntent= Intent(this,DayActivity::class.java)
                 startActivity((MentalIntent))
             }
         }

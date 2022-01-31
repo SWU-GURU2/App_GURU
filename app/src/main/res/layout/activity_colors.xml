@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ColorsActivity">
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="454dp"
+        android:layout_height="665dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.758"
+        app:srcCompat="@drawable/music_back" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="오늘 내게 필요한 색을 눌러주세요!"
+        android:textColor="#070707"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnRed"
+        android:layout_width="160dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#E60C0C"
+        app:layout_constraintEnd_toStartOf="@+id/btnOrange"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btnOrange"
+        android:layout_width="160dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="2dp"
+        android:backgroundTint="#F67D01"
+        app:layout_constraintBottom_toTopOf="@+id/textOrange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnYellow"
+        android:layout_width="160dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="212dp"
+        android:backgroundTint="#99FFDD00"
+        app:layout_constraintBottom_toTopOf="@+id/btnBlue"
+        app:layout_constraintEnd_toStartOf="@+id/btnGreen"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnGreen"
+        android:layout_width="160dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#2CB332"
+        app:layout_constraintBottom_toTopOf="@+id/btnPurple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnBlue"
+        android:layout_width="160dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="384dp"
+        android:backgroundTint="#1932D1"
+        app:layout_constraintBottom_toTopOf="@+id/textBlue"
+        app:layout_constraintEnd_toStartOf="@+id/btnPurple"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPurple"
+        android:layout_width="160dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="384dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#5626CA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textRed"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#80B2DDF4"
+        android:text="#생명 #열정 #활동적"
+        android:textColor="#121212"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textOrange"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRed" />
+
+    <TextView
+        android:id="@+id/textOrange"
+        android:layout_width="160dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#80B2DDF4"
+        android:text="    #창의성 # 표현"
+        android:textColor="#121212"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOrange" />
+
+    <TextView
+        android:id="@+id/textYellow"
+        android:layout_width="160dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#80B2DDF4"
+        android:text="       #긍정 #활력 "
+        android:textColor="#121212"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textGreen"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnYellow" />
+
+    <TextView
+        android:id="@+id/textGreen"
+        android:layout_width="160dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#80B2DDF4"
+        android:text="       #치유 #안정"
+        android:textColor="#121212"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPurple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGreen"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textBlue"
+        android:layout_width="162dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#80B2DDF4"
+        android:text="     #평화 #자신감"
+        android:textColor="#121212"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textPurple"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBlue" />
+
+    <TextView
+        android:id="@+id/textPurple"
+        android:layout_width="160dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#80B2DDF4"
+        android:text=" #영감 #생각의 전환"
+        android:textColor="#121212"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPurple" />
+
+    <Button
+        android:id="@+id/btnRpause"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableTop="@drawable/m_pause"
+        app:layout_constraintBottom_toTopOf="@+id/textRed"
+        app:layout_constraintEnd_toEndOf="@+id/btnRed"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/btnRed"
+        app:layout_constraintTop_toTopOf="@+id/btnRed"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnBpause"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableTop="@drawable/m_pause"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBlue"
+        app:layout_constraintEnd_toEndOf="@+id/btnBlue"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/btnBlue"
+        app:layout_constraintTop_toTopOf="@+id/btnBlue"
+        app:layout_constraintVertical_bias="0.869" />
+
+    <Button
+        android:id="@+id/btnPpause"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableTop="@drawable/m_pause"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPurple"
+        app:layout_constraintEnd_toEndOf="@+id/btnPurple"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/btnPurple"
+        app:layout_constraintTop_toTopOf="@+id/btnPurple"
+        app:layout_constraintVertical_bias="0.869" />
+
+    <Button
+        android:id="@+id/btnOpause"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableTop="@drawable/m_pause"
+        app:layout_constraintBottom_toTopOf="@+id/textOrange"
+        app:layout_constraintEnd_toEndOf="@+id/btnOrange"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="@+id/btnOrange"
+        app:layout_constraintTop_toTopOf="@+id/btnOrange"
+        app:layout_constraintVertical_bias="0.904" />
+
+    <Button
+        android:id="@+id/btnGpause"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableTop="@drawable/m_pause"
+        app:layout_constraintBottom_toTopOf="@+id/textGreen"
+        app:layout_constraintEnd_toEndOf="@+id/btnGreen"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="@+id/btnGreen"
+        app:layout_constraintTop_toTopOf="@+id/btnGreen"
+        app:layout_constraintVertical_bias="0.892" />
+
+    <Button
+        android:id="@+id/btnYpause"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableTop="@drawable/m_pause"
+        app:layout_constraintBottom_toBottomOf="@+id/btnYellow"
+        app:layout_constraintEnd_toEndOf="@+id/btnYellow"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/btnYellow"
+        app:layout_constraintTop_toTopOf="@+id/btnYellow"
+        app:layout_constraintVertical_bias="0.892" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

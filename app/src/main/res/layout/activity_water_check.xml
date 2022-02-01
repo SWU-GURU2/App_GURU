@@ -149,22 +149,11 @@
         android:id="@+id/imageView13"
         android:layout_width="59dp"
         android:layout_height="61dp"
-        android:layout_marginStart="144dp"
+        android:layout_marginStart="180dp"
         android:layout_marginTop="476dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/smile2" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="59dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="460dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/w_medium" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

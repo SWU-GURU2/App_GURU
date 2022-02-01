@@ -53,12 +53,13 @@ class WaterCheck : AppCompatActivity() {
 //        }
         
         when {
-            name.toInt() <= 600  -> {
+//            name.toInt() <= 600
+                    w1.toInt() <= 3  -> {
                 face.setImageResource(R.drawable.sad)
                 cup.setImageResource(R.drawable.w_low)
                 resultTextView.text = "부족"
             }
-            name.toInt() <= 1300 -> {
+            w1.toInt() <= 6 -> {
                 face.setImageResource(R.drawable.smile2)
                 cup.setImageResource(R.drawable.w_medium)
                 resultTextView.text = "적당"

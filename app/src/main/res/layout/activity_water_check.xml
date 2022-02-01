@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
         android:layout_marginTop="96dp"
-        android:text="몇 잔을 마셨나요?"
+        android:text="나의 음수량"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"

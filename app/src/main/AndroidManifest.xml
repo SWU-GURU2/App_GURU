@@ -15,8 +15,12 @@
         <activity android:name=".MealChoiceActivity" />
         <activity android:name=".MealWriteActivity" />
         <activity android:name=".MealCheckActivity" />
-        <activity android:name=".WaterEdit" />
-        <activity android:name=".WaterCheck" />
+        <activity android:name=".WaterEdit"
+            android:parentActivityName=".MainActivity"
+            ></activity>
+        <activity android:name=".WaterCheck"
+            android:parentActivityName=".WaterEdit"
+            />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

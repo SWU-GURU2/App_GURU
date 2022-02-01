@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
         //음수량 수정 화면
          val waterButton = findViewById<Button>(R.id.waterButton)
 
-        food.setOnClickListener {
-            var intent = Intent(this, MealChoiceActivity::class.java) //인텐트 생성
-            startActivity(intent)
-        }
+//        food.setOnClickListener {
+//            var intent = Intent(this, MealChoiceActivity::class.java) //인텐트 생성
+//            startActivity(intent)
+//        }
         //버튼 클릭시 할 행동
         waterButton.setOnClickListener {
             var intent = Intent(this, WaterEdit::class.java) //인텐트 생성

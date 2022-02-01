@@ -39,8 +39,9 @@
         android:id="@+id/water_ml_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="304dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="96dp"
+        android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -59,28 +60,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="43dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="268dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/w_empty" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="43dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="172dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/w_full" />
 
     <EditText
         android:id="@+id/editTextDate2"
@@ -117,19 +96,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tdl" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="328dp"
-        android:layout_marginTop="96dp"
-        android:text="ml"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/resultTextView"

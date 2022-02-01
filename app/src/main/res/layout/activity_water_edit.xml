@@ -7,6 +7,78 @@
     tools:context=".WaterEdit"
     android:background="@drawable/wateredit_bg">
 
+    <ImageView
+        android:id="@+id/water5"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="240dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
+        android:id="@+id/water6"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="240dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
+        android:id="@+id/water7"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="240dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
+        android:id="@+id/water8"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="240dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
+        android:id="@+id/water4"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="276dp"
+        android:layout_marginTop="152dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
+        android:id="@+id/water3"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="152dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
     <Button
         android:id="@+id/button6"
         android:layout_width="82dp"
@@ -70,6 +142,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/water1"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="152dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
+        android:id="@+id/water2"
+        android:layout_width="55dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="152dp"
+        android:src="@drawable/btn_selector"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/w_empty" />
+
+    <ImageView
         android:id="@+id/imageView5"
         android:layout_width="45dp"
         android:layout_height="45dp"
@@ -92,19 +188,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textColor="#45C7EF"/>
 
-    <Button
-        android:id="@+id/resultButton"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="520dp"
-        android:background="@drawable/buttons"
-        android:text="기록하기"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-/>
+<!--    <Button-->
+<!--        android:id="@+id/resultButton"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginStart="160dp"-->
+<!--        android:layout_marginTop="520dp"-->
+<!--        android:background="@drawable/buttons"-->
+<!--        android:text="기록하기"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
     <EditText
         android:id="@+id/water_ml"
         android:layout_width="126dp"
@@ -134,37 +230,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/water1"
-        android:layout_width="48dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="180dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/w_empty" />
-
     <Button
-        android:id="@+id/B"
-        android:layout_width="36dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="304dp"
-        android:layout_marginTop="400dp"
-        android:text="Button"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="printMessage"/>
-
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="39dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="144dp"
-        android:text="Button"
+        android:id="@+id/btn_intent"
+        android:layout_width="97dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="524dp"
+        android:background="@drawable/buttons"
+        android:text="기록하기"
+        android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

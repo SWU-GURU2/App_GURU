@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import org.w3c.dom.Text
 
-// 식단 삭제 창
+// 식단 삭제 창입니다
 
 class MealDelete : AppCompatActivity() {
 

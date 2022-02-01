@@ -43,8 +43,7 @@
         android:layout_marginTop="8dp"
         android:text="삭제"
         app:layout_constraintTop_toBottomOf="@+id/deleteKcal"
-        tools:layout_editor_absoluteX="13dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteX="13dp" />
 
     <TextView
         android:id="@+id/deleteTitle"

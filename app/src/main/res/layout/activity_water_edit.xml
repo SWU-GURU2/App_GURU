@@ -97,7 +97,7 @@
         app:srcCompat="@drawable/w_empty" />
 
     <Button
-        android:id="@+id/cal"
+        android:id="@+id/cal_day"
         android:layout_width="82dp"
         android:layout_height="37dp"
         android:layout_marginStart="40dp"
@@ -111,9 +111,9 @@
 
     <EditText
         android:id="@+id/cal_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_width="153dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="216dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="date"
@@ -227,21 +227,12 @@
         android:id="@+id/btn_intent"
         android:layout_width="97dp"
         android:layout_height="42dp"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="156dp"
         android:layout_marginTop="524dp"
         android:background="@drawable/buttons"
         android:text="기록하기"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

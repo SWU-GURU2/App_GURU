@@ -11,12 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Guru2">
-        <activity android:name=".WaterEdit"
-            android:parentActivityName=".MainActivity"
-            ></activity>
-        <activity android:name=".WaterCheck"
-            android:parentActivityName=".WaterEdit"
-            />
+        <activity android:name=".MealChoiceActivity"></activity>
+        <activity android:name=".MealWriteActivity" />
+        <activity android:name=".MealDelete" />
+        <activity android:name=".MealDBManager" />
+        <activity android:name=".MealChoiceAcitivity" />
+        <activity
+            android:name=".WaterEdit"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".WaterCheck"
+            android:parentActivityName=".WaterEdit" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

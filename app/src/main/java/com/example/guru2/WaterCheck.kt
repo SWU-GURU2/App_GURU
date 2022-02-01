@@ -25,7 +25,7 @@ class WaterCheck : AppCompatActivity() {
         val name: String = intent4.getStringExtra("name")
         water_ml_view.setText(name+" ml")
 
-        //버튼 클릭시 할 행동
+        //수정하기 버튼 클릭시 할 행동
         water_editButton.setOnClickListener {
             var intent3 = Intent(this, WaterEdit::class.java) //인텐트 생성
             startActivity(intent3)

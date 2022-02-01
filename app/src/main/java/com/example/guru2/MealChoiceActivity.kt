@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import org.w3c.dom.Text
 
 class MealChoiceActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class MealChoiceActivity : AppCompatActivity() {
     lateinit var calendarChoice: CalendarView
     lateinit var scrollMeal: ScrollView
     lateinit var tvChoice: TextView
+    lateinit var backChoice: ImageView
 
     var selectYear: Int = 0
     var selectMonth: Int = 0
@@ -39,13 +41,13 @@ class MealChoiceActivity : AppCompatActivity() {
         calChoiceButton = findViewById(R.id.calChoiceButton)
         calendarChoice = findViewById(R.id.calendarChoice)
         tvChoice = findViewById(R.id.tvChoice)
+        backChoice = findViewById(R.id.backChoice)
 
         calendarChoice.setOnDateChangeListener { view, year, month, date ->
             selectYear = year
             selectMonth = month + 1
             selectDate = date
-            var alarm: String =
-                selectYear.toString() + "년 " + selectMonth.toString() + "월 " + selectDate.toString() + "일 " + "기록을 확인합니다."
+            var alarm: String = selectYear.toString() + "년 " + selectMonth.toString() + "월 " + selectDate.toString() + "일 " + "기록을 확인합니다."
             calChoiceButton.setOnClickListener {
                 Toast.makeText(applicationContext, alarm, Toast.LENGTH_SHORT).show()
                 calChoiceButton.visibility = View.GONE
@@ -53,6 +55,8 @@ class MealChoiceActivity : AppCompatActivity() {
                 tvChoice.visibility = View.GONE
                 scrollMeal.visibility = ScrollView.VISIBLE
                 layout.visibility = LinearLayout.VISIBLE
+                backChoice.visibility = ImageView.INVISIBLE
+
 
                 var cursor: Cursor
                 cursor = sqlitedb.rawQuery(
@@ -63,18 +67,24 @@ class MealChoiceActivity : AppCompatActivity() {
 
                     var str_hour = cursor.getString(cursor.getColumnIndex("hour")).toString()
                     var str_minute = cursor.getString(cursor.getColumnIndex("minute")).toString()
-                    var str_food = cursor.getString(cursor.getColumnIndex("food")).toString()
-                    var str_kcal = cursor.getString(cursor.getColumnIndex("kcal")).toString()
+                    var str_title = cursor.getString(cursor.getColumnIndex("title")).toString()
+                    var str_food: String = cursor.getString(cursor.getColumnIndex("food")).toString()
+                    var str_kcal: String = cursor.getString(cursor.getColumnIndex("kcal")).toString()
+
 
                     var layout_item: LinearLayout = LinearLayout(this)
                     layout_item.orientation = LinearLayout.VERTICAL
                     layout_item.id = num
 
+                    var tvTitle: TextView = TextView(this)
+                    tvTitle.text = str_title
+                    tvTitle.textSize = 25F
+                    tvTitle.setBackgroundColor(Color.WHITE)
+                    layout_item.addView(tvTitle)
+
                     var tvTime: TextView = TextView(this)
-                    tvTime.text = str_hour + "시" + " " + str_minute + "분"
-                    tvTime.textSize = 25F
-                    tvTime.setBackgroundColor(Color.CYAN)
-                    tvTime.setTextColor(Color.WHITE)
+                    tvTime.text = "먹은 시간: " + str_hour + "시" + " " + str_minute + "분"
+                    tvTime.setTextColor(Color.BLACK)
                     layout_item.addView(tvTime)
 
                     var tvFood: TextView = TextView(this)
@@ -87,8 +97,22 @@ class MealChoiceActivity : AppCompatActivity() {
                     tvKcal.setTextColor(Color.BLACK)
                     layout_item.addView(tvKcal)
 
+                    layout_item.setOnClickListener{
+                        val intent = Intent(this, MealDelete::class.java)
+                        intent.putExtra("intent_year", selectYear.toString())
+                        intent.putExtra("intent_month", selectMonth.toString())
+                        intent.putExtra("intent_date", selectDate.toString())
+                        intent.putExtra("intent_hour", str_hour)
+                        intent.putExtra("intent_minute", str_minute)
+                        intent.putExtra("intent_title", str_title)
+                        intent.putExtra("intent_food", str_food)
+                        intent.putExtra("intent_kcal", str_kcal)
+                        startActivity(intent)
+                    }
+
                     layout.addView(layout_item)
                     num++
+
 
                 }
 

@@ -106,7 +106,7 @@
         android:id="@+id/calBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/main_blue"
         android:text="날짜 다시 선택"
@@ -116,43 +116,29 @@
         app:layout_constraintTop_toBottomOf="@+id/calWriteButton"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/editImage"
-        android:layout_width="38dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCalCheck"
-        app:srcCompat="@drawable/pencil"
-        tools:ignore="MissingConstraints" />
-
     <EditText
         android:id="@+id/editTextFood"
         android:layout_width="309dp"
         android:layout_height="42dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="110dp"
+        android:layout_marginBottom="70dp"
         android:ems="10"
         android:hint="먹은 음식을 적어주세요. ex) 닭볶음탕"
         android:inputType="text"
         android:textColor="@color/black"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editImage"
+        app:layout_constraintStart_toEndOf="@+id/writeButton"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextKcal"
         android:layout_width="309dp"
         android:layout_height="42dp"
-        android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="칼로리를 적어주세요. ex) 550"
         android:inputType="number|text"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/editImage"
+        app:layout_constraintStart_toStartOf="@+id/editTextFood"
         app:layout_constraintTop_toBottomOf="@+id/editTextFood"
         tools:ignore="MissingConstraints"
         tools:textColor="#000000" />
@@ -161,14 +147,28 @@
         android:id="@+id/writeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginBottom="104dp"
         android:backgroundTint="@color/main_blue"
         android:text="입력 완료"
         android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTitle"
+        android:layout_width="309dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="108dp"
+        android:ems="10"
+        android:hint="제목을 적으세요. ex) 닭볶음탕 먹은날~"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/writeButton"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"

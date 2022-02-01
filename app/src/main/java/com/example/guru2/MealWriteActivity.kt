@@ -20,10 +20,10 @@ class MealWriteActivity : AppCompatActivity() {
     lateinit var tvCalWrite: TextView
     lateinit var tvTimeWrite: TextView
     lateinit var calBackButton: Button
-    lateinit var editImage: ImageView
     lateinit var editTextFood: EditText
     lateinit var editTextKcal: EditText
     lateinit var writeButton: Button
+    lateinit var editTextTitle: EditText
 
     var selectYear: Int = 0
     var selectMonth: Int = 0
@@ -44,10 +44,10 @@ class MealWriteActivity : AppCompatActivity() {
         tvCalWrite = findViewById(R.id.tvCalCheck)
         tvTimeWrite = findViewById(R.id.tvTimeWrite)
         calBackButton = findViewById(R.id.calBackButton)
-        editImage = findViewById(R.id.editImage)
         editTextFood = findViewById(R.id.editTextFood)
         editTextKcal = findViewById(R.id.editTextKcal)
         writeButton = findViewById(R.id.writeButton)
+        editTextTitle = findViewById(R.id.editTextTitle)
 
         calendarWrite.setOnDateChangeListener { view, year, month, date ->
             selectYear = year
@@ -101,7 +101,7 @@ class MealWriteActivity : AppCompatActivity() {
                     }
                     tvCalWrite.visibility = View.VISIBLE
                     tvTimeWrite.visibility = View.VISIBLE
-                    editImage.visibility = View.VISIBLE
+                    editTextTitle.visibility = View.VISIBLE
                     editTextFood.visibility = View.VISIBLE
                     editTextKcal.visibility = View.VISIBLE
                     writeButton.visibility = View.VISIBLE
@@ -113,11 +113,12 @@ class MealWriteActivity : AppCompatActivity() {
                 var str_date: String = selectDate.toString()
                 var str_hour: String = selectHour.toString()
                 var str_minute: String = selectMinute.toString()
+                var str_title: String = editTextTitle.text.toString()
                 var str_food: String = editTextFood.text.toString()
                 var str_kcal:String = editTextKcal.text.toString()
 
                 sqlitedb = MealdbManager.writableDatabase
-                sqlitedb.execSQL("INSERT INTO meal VALUES(" +str_year+", " +str_month+", " +str_date+", " +str_hour+", " +str_minute+", '" +str_food+"', " +str_kcal+")")
+                sqlitedb.execSQL("INSERT INTO meal VALUES('"+str_title+"', " +str_year+", " +str_month+", " +str_date+", " +str_hour+", " +str_minute+", '" +str_food+"', " +str_kcal+")")
                 sqlitedb.close()
 
                 Toast.makeText(applicationContext, "입력 완료되었습니다.", Toast.LENGTH_SHORT).show()
@@ -134,7 +135,7 @@ class MealWriteActivity : AppCompatActivity() {
             tvCalWrite.visibility = View.INVISIBLE
             tvTimeWrite.visibility = View.INVISIBLE
             calBackButton.visibility = View.INVISIBLE
-            editImage.visibility = View.INVISIBLE
+            editTextTitle.visibility = View.INVISIBLE
             editTextFood.visibility = View.INVISIBLE
             editTextKcal.visibility = View.INVISIBLE
             writeButton.visibility = View.INVISIBLE

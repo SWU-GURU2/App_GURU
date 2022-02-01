@@ -1,6 +1,5 @@
 package com.example.guru2
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -11,8 +10,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
-import org.w3c.dom.Text
+
+// 식단 고르는 창
 
 class MealChoiceActivity : AppCompatActivity() {
 

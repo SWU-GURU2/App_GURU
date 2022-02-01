@@ -9,6 +9,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
+//식단 기록 창
+
 class MealWriteActivity : AppCompatActivity() {
     lateinit var MealdbManager: MealDBManager
     lateinit var sqlitedb: SQLiteDatabase

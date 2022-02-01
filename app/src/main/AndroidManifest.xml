@@ -14,7 +14,6 @@
         <activity android:name=".MealDelete"></activity>
         <activity android:name=".MealChoiceActivity" />
         <activity android:name=".MealWriteActivity" />
-        <activity android:name=".MealCheckActivity" />
         <activity android:name=".WaterEdit" />
         <activity android:name=".WaterCheck" />
         <activity android:name=".LoginActivity">

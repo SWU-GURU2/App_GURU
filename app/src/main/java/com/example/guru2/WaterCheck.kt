@@ -18,20 +18,14 @@ class WaterCheck : AppCompatActivity() {
         setContentView(R.layout.activity_water_check)
 
         // 액티비티에 들어오자마자 바로 첨부된 값을 받아서 텍스트뷰에 반영
-        val water_ml_value = intent.getStringExtra("message")
-        water_ml_view.text = water_ml_value
+//        val water_ml_value = intent.getStringExtra("message")
+//        water_ml_view.text = water_ml_value
 
-//        var water_ml_value: String? = intent.getStringExtra("key1")
-//        var water_ml_view: TextView = TextView(this)
-//        water_ml_view.setText(
-//                water_ml_value
-//        )
-//
-//        var layout: ViewGroup = findViewById(R.id.activity_water_check)
-//        layout.addView(water_ml_view)
-
-//        resultTextView = findViewById<TextView>(R.id.textView)
-//        var ml = intent2.getStringExtra("ml").toInt()
+        var edit_text_value: String? = intent.getStringExtra("key1")
+        var water_ml_view: TextView = TextView(this)
+        water_ml_view.setText(edit_text_value)
+        //var layout: ViewGroup = findViewById(R.id.activity_water_check)
+        //layout.addView(water_ml_view)
 
         water_editButton = findViewById<Button>(R.id.water_editButton)
 

@@ -162,6 +162,7 @@ class WaterEdit : AppCompatActivity() {
             }
         }
 
+
 //    private fun checkedDay(cYear: Int, cMmonth: Int, cDay: Int) {
 //        fname = "" + cYear + "-" + (cMonth + 1) + "" + "-" + cDay + ".txt"
 //// 저장할 파일 이름 설정. Ex) 2019-01-20.txt

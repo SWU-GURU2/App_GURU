@@ -19,6 +19,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".HealthListActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HealthRecActivity"
+            android:parentActivityName=".HealthListActivity" />
+        <activity
+            android:name=".HealthCalActivity"
+            android:parentActivityName=".HealthListActivity" />
     </application>
 
 </manifest>

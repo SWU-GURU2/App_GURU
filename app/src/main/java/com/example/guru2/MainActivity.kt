@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
     var auth: FirebaseAuth ?= null
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    lateinit var healthButton: Button //운동버튼
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(logoutIntent)
         }
 
+        healthButton = findViewById<Button>(R.id.healthButton)
+        healthButton.setOnClickListener{
+            var healthIntent = Intent(this, HealthListActivity::class.java)
+            startActivity(healthIntent)
+        }
 
     }
 }

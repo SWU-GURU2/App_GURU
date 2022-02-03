@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.385" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/mealButton"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/first_button"
@@ -64,7 +64,7 @@
         app:layout_constraintVertical_bias="0.517" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/waterButton"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/first_button"
@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.648" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/mentalcare"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/first_button"
@@ -108,7 +108,7 @@
         app:layout_constraintVertical_bias="0.912" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/memberEdit"
         android:layout_width="131dp"
         android:layout_height="40dp"
         android:text="정보입력/수정"

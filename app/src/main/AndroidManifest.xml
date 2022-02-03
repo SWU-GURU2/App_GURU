@@ -11,11 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Guru2">
-        <activity android:name=".HealthCalActivity"></activity>
+        <activity android:name=".MealDelete"></activity>
+        <activity android:name=".MealChoiceActivity" />
+        <activity android:name=".MealWriteActivity" />
+        <activity android:name=".WaterEdit" />
+        <activity android:name=".WaterCheck" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

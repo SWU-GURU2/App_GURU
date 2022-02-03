@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var waterButton: Button
 
+    lateinit var healthButton: Button //운동버튼
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -42,6 +44,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(logoutIntent)
         }
 
+        healthButton = findViewById<Button>(R.id.healthButton)
+        healthButton.setOnClickListener{
+            var healthIntent = Intent(this, HealthListActivity::class.java)
+            startActivity(healthIntent)
+        }
 
         mealButton = findViewById(R.id.mealButton)
 

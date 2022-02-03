@@ -11,9 +11,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
-
-// 식단 고르는 창입니다
-
 class MealChoiceActivity : AppCompatActivity() {
 
     lateinit var MealdbManager: MealDBManager

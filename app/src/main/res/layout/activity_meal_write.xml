@@ -162,7 +162,7 @@
         android:layout_height="42dp"
         android:layout_marginBottom="108dp"
         android:ems="10"
-        android:hint="제목을 적으세요. ex) 닭볶음탕 먹은날~"
+        android:hint="제목을 적으세요. ex) 닭볶음탕 먹은날!"
         android:inputType="text"
         android:textColor="@color/black"
         android:visibility="invisible"

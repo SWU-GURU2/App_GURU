@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mealButton: Button
 
     lateinit var waterButton: Button
-
+    lateinit var mentalButton: Button
     lateinit var healthButton: Button //운동버튼
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +51,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         mealButton = findViewById(R.id.mealButton)
-
         mealButton.setOnClickListener {
             val intent = Intent(this, MealWriteActivity::class.java)
             startActivity(intent)
+        }
+        mentalButton=findViewById(R.id.mentalButton)
+        mentalButton.setOnClickListener{
+            val mentalIntent=Intent(this,MentalDailyActivity::class.java)
+            startActivity(mentalIntent)
         }
 
         //음수량 수정 화면

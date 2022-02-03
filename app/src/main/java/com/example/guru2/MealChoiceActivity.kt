@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
+
 // 식단 고르는 창입니다
 
 class MealChoiceActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class MealChoiceActivity : AppCompatActivity() {
     var selectYear: Int = 0
     var selectMonth: Int = 0
     var selectDate: Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +72,6 @@ class MealChoiceActivity : AppCompatActivity() {
                     var str_food: String = cursor.getString(cursor.getColumnIndex("food")).toString()
                     var str_kcal: String = cursor.getString(cursor.getColumnIndex("kcal")).toString()
 
-
                     var layout_item: LinearLayout = LinearLayout(this)
                     layout_item.orientation = LinearLayout.VERTICAL
                     layout_item.id = num
@@ -79,6 +80,7 @@ class MealChoiceActivity : AppCompatActivity() {
                     tvTitle.text = str_title
                     tvTitle.textSize = 25F
                     tvTitle.setBackgroundColor(Color.WHITE)
+                    tvTitle.setTextColor(Color.BLACK)
                     layout_item.addView(tvTitle)
 
                     var tvTime: TextView = TextView(this)
@@ -111,7 +113,6 @@ class MealChoiceActivity : AppCompatActivity() {
 
                     layout.addView(layout_item)
                     num++
-
 
                 }
 

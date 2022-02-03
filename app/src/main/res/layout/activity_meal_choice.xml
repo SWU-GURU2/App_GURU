@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="270dp"
         android:layout_marginBottom="150dp"
-        android:backgroundTint="@color/main_blue"
+        android:background="@drawable/buttons"
         android:text="날짜 선택"
         android:textColor="@color/white"
         android:visibility="visible"

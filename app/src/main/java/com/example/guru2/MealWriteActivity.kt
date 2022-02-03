@@ -9,8 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
-
-
 class MealWriteActivity : AppCompatActivity() {
     lateinit var MealdbManager: MealDBManager
     lateinit var sqlitedb: SQLiteDatabase

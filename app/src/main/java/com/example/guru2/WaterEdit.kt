@@ -140,16 +140,14 @@ class WaterEdit : AppCompatActivity() {
                 var str_watercount: String = watercount.toString()
                 var str_waterml: String = water_ml.text.toString()
 
-                var
                 sqlitedb = WaterDBManger.writableDatabase
                 sqlitedb.execSQL("INSERT INTO water VALUES ("+ str_year+","+ str_month +","+ str_date +","+ "," + str_watercount + "," + str_waterml +")")
                 sqlitedb.close()
 
+                Toast.makeText(applicationContext, "기록 완료되었습니다.", Toast.LENGTH_SHORT).show()
+
                 val intent2 = Intent(this, WaterCheck::class.java)
                 intent2.putExtra("name", water_ml.text.toString())
-//                val intent = Intent(this, WaterList::class.java)
-//                intent.putExtra("intent_name", )
-//                startActivity(intent)
                 if (water_ml.text.toString().length == 0) {
                     Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
                 } else {

@@ -15,8 +15,8 @@ import android.widget.TextView
 import org.w3c.dom.Text
 
 class WaterCheck : AppCompatActivity() {
-//    lateinit var dbManger: WaterDBManger
-//    lateinit var sqlitedb: SQLiteDatabase
+    lateinit var dbManger: WaterDBManger
+    lateinit var sqlitedb: SQLiteDatabase
 
     lateinit var water_editButton: Button //음수량 수정하기 버튼
     lateinit var water_ml_view:TextView //ml 기록 보여줌
@@ -30,6 +30,9 @@ class WaterCheck : AppCompatActivity() {
     var selectDate: Int = 0
     var cup_ml: Int = 0
     var cup_clicked: Int = 0
+
+    var watercount: Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

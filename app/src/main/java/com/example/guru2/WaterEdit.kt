@@ -14,13 +14,12 @@ import java.util.*
 
 //음수량 수정 화면
 class WaterEdit : AppCompatActivity() {
-    lateinit var dbManger: WaterDBManger
+    lateinit var WaterDBManger: WaterDBManger
     lateinit var sqlitedb: SQLiteDatabase
-    //추후에 초기화 변수타입
+
     lateinit var cal_day: Button //날짜 선택
     lateinit var cal_view: TextView // 선택한 날짜
-    lateinit var calendarView: CalendarView //달력
-    lateinit var water1: ImageView //컵
+    lateinit var water1: ImageView //컵(잔)
     lateinit var water2: ImageView
     lateinit var water3: ImageView
     lateinit var water4: ImageView
@@ -28,13 +27,21 @@ class WaterEdit : AppCompatActivity() {
     lateinit var water6: ImageView
     lateinit var water7: ImageView
     lateinit var water8: ImageView
-    var watercount : Int = 0
     lateinit var water_ml: EditText //ml 기록
-    lateinit var btn_intent: Button // resultbutton과 같은 기록하기 버튼
+    lateinit var resultbutton: Button // resultbutton과 같은 기록하기 버튼
+
+    var selectYear: Int = 0
+    var selectMonth: Int = 0
+    var selectDate: Int = 0
+    var watercount : Int = 0 //선택한 잔의 갯수
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_water_edit)
+
+        //데이터베이스 연결
+        WaterDBManger = WaterDBManger(this, "waterDB", null, 1 )
 
         //UI값 생성
         cal_day = findViewById<Button>(R.id.cal_day)
@@ -49,10 +56,7 @@ class WaterEdit : AppCompatActivity() {
         water7 = findViewById<ImageView>(R.id.water7)
         water8 = findViewById<ImageView>(R.id.water8)
         water_ml = findViewById<EditText>(R.id.water_ml)
-        btn_intent = findViewById<Button>(R.id.btn_intent)
-
-        //데이터베이스 연결
-        dbManger = WaterDBManger(this, "waterDB", null, 1 )
+        resultbutton = findViewById<Button>(R.id.resultbutton)
 
         //날짜 선택
         cal_day.setOnClickListener {
@@ -65,18 +69,18 @@ class WaterEdit : AppCompatActivity() {
             water7.visibility = View.VISIBLE
             water8.visibility = View.VISIBLE
             water_ml.visibility = View.VISIBLE
-            btn_intent.visibility = View.VISIBLE
+            resultbutton.visibility = View.VISIBLE
 
             var calendar = Calendar.getInstance()
-            var year = calendar.get(Calendar.YEAR)
-            var month = calendar.get(Calendar.MONTH)
-            var day = calendar.get(Calendar.DAY_OF_MONTH)
+            var selectYear = calendar.get(Calendar.YEAR)
+            var selectMonth = calendar.get(Calendar.MONTH)
+            var selectDay = calendar.get(Calendar.DAY_OF_MONTH)
 
             var listener = DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
                 cal_view.text = "${i}년 ${i2 + 1}월 ${i3}일"
                 Toast.makeText(getApplicationContext(), "음수량 기록을 시작합니다", Toast.LENGTH_LONG).show();
             }
-            var picker = DatePickerDialog(this, listener, year, month, day)
+            var picker = DatePickerDialog(this, listener, selectYear, selectMonth, selectDay)
             picker.show()
 
             //컵 클릭 효과
@@ -129,9 +133,16 @@ class WaterEdit : AppCompatActivity() {
                 }
             }
 
-            btn_intent.setOnClickListener {
-                sqlitedb = dbManger.writableDatabase
-                sqlitedb.execSQL("INSERT INTO water VALUES ("+year+","+month+","+day+","+watercount+")")
+            resultbutton.setOnClickListener {
+                var str_year: String = selectYear.toString()
+                var str_month: String = selectMonth.toString()
+                var str_date: String = selectDate.toString()
+                var str_watercount: String = watercount.toString()
+                var str_waterml: String = water_ml.text.toString()
+
+                var
+                sqlitedb = WaterDBManger.writableDatabase
+                sqlitedb.execSQL("INSERT INTO water VALUES ("+ str_year+","+ str_month +","+ str_date +","+ "," + str_watercount + "," + str_waterml +")")
                 sqlitedb.close()
 
                 val intent2 = Intent(this, WaterCheck::class.java)

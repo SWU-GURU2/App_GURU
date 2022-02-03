@@ -13,11 +13,9 @@
         android:theme="@style/Theme.Guru2">
         <activity android:name=".WaterList"></activity>
         <activity
-            android:name=".WaterEdit"
-/>
+            android:name=".WaterEdit" />
         <activity
-            android:name=".WaterCheck"
-            android:parentActivityName=".WaterEdit" />
+            android:name=".WaterCheck" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

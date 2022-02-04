@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="31dp"
-        android:backgroundTint="#8DE4FF"
+        android:background="@drawable/buttons"
         android:text="입력완료"
         app:layout_constraintEnd_toEndOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="parent" />
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toTopOf="@+id/exercise_2" />
 
     <TextView
-        android:id="@+id/todayHealth"
+        android:id="@+id/healthText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"

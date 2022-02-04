@@ -1,7 +1,12 @@
 package com.example.guru2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.AxisBase
@@ -15,6 +20,9 @@ import kotlinx.android.synthetic.main.activity_health_cal.*
 import kotlinx.android.synthetic.main.activity_health_list.*
 
 class HealthCalActivity : AppCompatActivity() {
+    lateinit var kcal : TextView
+    lateinit var calendarButton : ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_health_cal)
@@ -25,16 +33,30 @@ class HealthCalActivity : AppCompatActivity() {
         var exercise_4 = intent.getStringExtra("다리 운동").toFloat()
         var exercise_5 = intent.getStringExtra("복근 운동").toFloat()
 
+        kcal = findViewById<TextView>(R.id.kcal)
+        var totalcal = (exercise_1+exercise_2+exercise_3+exercise_4+exercise_5)*5
+        kcal.text = totalcal.toInt().toString()
+
+        calendarButton = findViewById<ImageButton>(R.id.calendarButton)
+        calendarButton.setOnClickListener {
+            val intent = Intent(this,HealthRecActivity::class.java)
+            intent.putExtra("가슴 운동", exercise_1.toString())
+            intent.putExtra("팔 운동", exercise_2.toString())
+            intent.putExtra("어깨ㆍ등 운동", exercise_3.toString())
+            intent.putExtra("다리 운동", exercise_4.toString())
+            intent.putExtra("복근 운동", exercise_5.toString())
+            startActivity(intent)
+        }
+
         var barChart: BarChart = findViewById(R.id.barChart)
 
         val entries = ArrayList<BarEntry>()
-        entries.add(BarEntry(1.2f,exercise_1))
-        entries.add(BarEntry(2.2f,exercise_2))
-        entries.add(BarEntry(3.2f,exercise_3))
-        entries.add(BarEntry(4.2f,exercise_4))
-        entries.add(BarEntry(5.2f,exercise_5))
-        //entries.add(BarEntry(6.2f,30.0f))
-        //entries.add(BarEntry(7.2f,90.0f))
+        entries.add(BarEntry(1.2f,exercise_1*5))
+        entries.add(BarEntry(2.2f,exercise_2*5))
+        entries.add(BarEntry(3.2f,exercise_3*5))
+        entries.add(BarEntry(4.2f,exercise_4*5))
+        entries.add(BarEntry(5.2f,exercise_5*5))
+
 
         barChart.run {
             description.isEnabled = false // 차트 옆에 별도로 표기되는 description을 안보이게 설정 (false)
@@ -43,9 +65,9 @@ class HealthCalActivity : AppCompatActivity() {
             setDrawBarShadow(false) //그래프의 그림자
             setDrawGridBackground(false)//격자구조 넣을건지
             axisLeft.run { //왼쪽 축. 즉 Y방향 축을 뜻한다.
-                axisMaximum = 51f //50 위치에 선을 그리기 위해 51f로 맥시멈값 설정
+                axisMaximum = 301f //50 위치에 선을 그리기 위해 51f로 맥시멈값 설정
                 axisMinimum = 0f // 최소값 0
-                granularity = 10f // 10 단위마다 선을 그리려고 설정.
+                granularity = 100f // 10 단위마다 선을 그리려고 설정.
                 setDrawLabels(true) // 값 적는거 허용 (0, 50, 100)
                 setDrawGridLines(true) //격자 라인 활용
                 setDrawAxisLine(false) // 축 그리기 설정
@@ -89,4 +111,25 @@ class HealthCalActivity : AppCompatActivity() {
             return days.getOrNull(value.toInt()-1) ?: value.toString()
         }
     }
+
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.health_menu,menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item?.itemId){
+            R.id.calendar -> {
+                val intent = Intent(this, HealthRecActivity::class.java)
+                intent.putExtra("가슴 운동", exercise_1.toString())
+                intent.putExtra("팔 운동", exercise_2.toString())
+                intent.putExtra("어깨ㆍ등 운동", exercise_3.toString())
+                intent.putExtra("다리 운동", exercise_4.toString())
+                intent.putExtra("복근 운동", exercise_5.toString())
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }*/
+
 }

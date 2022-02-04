@@ -20,14 +20,11 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".HealthListActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".HealthListActivity"/>
         <activity
-            android:name=".HealthRecActivity"
-            android:parentActivityName=".HealthListActivity" />
+            android:name=".HealthRecActivity" />
         <activity
-            android:name=".HealthCalActivity"
-            android:parentActivityName=".HealthListActivity" />
+            android:name=".HealthCalActivity"/>
     </application>
 
 </manifest>

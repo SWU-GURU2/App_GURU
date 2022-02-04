@@ -1,8 +1,11 @@
 package com.example.guru2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.BarChart
@@ -18,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_health_list.*
 
 class HealthCalActivity : AppCompatActivity() {
     lateinit var kcal : TextView
+    lateinit var calendarButton : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,17 @@ class HealthCalActivity : AppCompatActivity() {
         var totalcal = (exercise_1+exercise_2+exercise_3+exercise_4+exercise_5)*5
         kcal.text = totalcal.toInt().toString()
 
+        calendarButton = findViewById<ImageButton>(R.id.calendarButton)
+        calendarButton.setOnClickListener {
+            val intent = Intent(this,HealthRecActivity::class.java)
+            intent.putExtra("가슴 운동", exercise_1.toString())
+            intent.putExtra("팔 운동", exercise_2.toString())
+            intent.putExtra("어깨ㆍ등 운동", exercise_3.toString())
+            intent.putExtra("다리 운동", exercise_4.toString())
+            intent.putExtra("복근 운동", exercise_5.toString())
+            startActivity(intent)
+        }
+
         var barChart: BarChart = findViewById(R.id.barChart)
 
         val entries = ArrayList<BarEntry>()
@@ -41,8 +56,6 @@ class HealthCalActivity : AppCompatActivity() {
         entries.add(BarEntry(3.2f,exercise_3*5))
         entries.add(BarEntry(4.2f,exercise_4*5))
         entries.add(BarEntry(5.2f,exercise_5*5))
-        //entries.add(BarEntry(6.2f,30.0f))
-        //entries.add(BarEntry(7.2f,90.0f))
 
 
         barChart.run {
@@ -98,4 +111,25 @@ class HealthCalActivity : AppCompatActivity() {
             return days.getOrNull(value.toInt()-1) ?: value.toString()
         }
     }
+
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.health_menu,menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item?.itemId){
+            R.id.calendar -> {
+                val intent = Intent(this, HealthRecActivity::class.java)
+                intent.putExtra("가슴 운동", exercise_1.toString())
+                intent.putExtra("팔 운동", exercise_2.toString())
+                intent.putExtra("어깨ㆍ등 운동", exercise_3.toString())
+                intent.putExtra("다리 운동", exercise_4.toString())
+                intent.putExtra("복근 운동", exercise_5.toString())
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }*/
+
 }

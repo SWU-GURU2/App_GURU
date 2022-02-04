@@ -19,6 +19,9 @@
         <activity android:name=".MealWriteActivity" />
         <activity android:name=".WaterEdit" />
         <activity android:name=".WaterCheck" />
+        <activity android:name=".HealthListActivity"/>
+        <activity android:name=".HealthCalActivity"/>
+        <activity android:name=".HealthRecActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +30,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".HealthListActivity"
-            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

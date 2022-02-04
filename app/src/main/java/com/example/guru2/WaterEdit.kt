@@ -75,7 +75,7 @@ class WaterEdit : AppCompatActivity() {
         resultbutton = findViewById<Button>(R.id.resultbutton)
         imageView = findViewById<ImageView>(R.id.imageView)
         textView = findViewById<TextView>(R.id.textView)
-        imageView2 = findViewById<ImageView>(R.id.imageView)
+        imageView2 = findViewById<ImageView>(R.id.imageView2)
         textView2 = findViewById<TextView>(R.id.textView2)
         textView3 = findViewById<TextView>(R.id.textView3)
         textView4 = findViewById<TextView>(R.id.textView4)
@@ -192,10 +192,12 @@ class WaterEdit : AppCompatActivity() {
                     }
                 }
 
+                //ml를 입력하지 않았을 경우 메세지 출력
                 if (water_ml.text.toString().length == 0) {
                     Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
                 }
-                else{
+                //모든 정보 입력시
+                else {
                     Toast.makeText(applicationContext, "기록 완료되었습니다.", Toast.LENGTH_SHORT).show()
                     water1.visibility = View.INVISIBLE
                     water2.visibility = View.INVISIBLE
@@ -214,7 +216,6 @@ class WaterEdit : AppCompatActivity() {
                     textView4.visibility = View.INVISIBLE
                     imageView2.visibility = View.INVISIBLE
 
-                    imageView.visibility = View.VISIBLE
                     textView6.visibility = View.VISIBLE
                     water_editButton.visibility = View.VISIBLE
                     cups_selected.visibility = View.VISIBLE
@@ -225,21 +226,6 @@ class WaterEdit : AppCompatActivity() {
                     water_view.visibility = View.VISIBLE
                     water_result.visibility = View.VISIBLE
                 }
-
-//                val intent2 = Intent(this, WaterCheck::class.java)
-//                intent2.putExtra("intent_year", selectYear.toString())
-//                intent2.putExtra("intent_month", selectMonth.toString())
-//                intent2.putExtra("intent_date", selectDate.toString())
-//                intent2.putExtra("intent_watercount", str_watercount)
-//                intent2.putExtra("intent_waterml", str_waterml)
-//                startActivity(intent2)
-//                intent2.putExtra("name", water_ml.text.toString())
-//                if (water_ml.text.toString().length == 0) {
-//                    Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
-//                } else {
-//                    intent2.putExtra("w1", watercount.toString())
-//                    startActivity(intent2)
-//                }
             }
 
             water_editButton.setOnClickListener{

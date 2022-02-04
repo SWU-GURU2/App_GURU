@@ -3,12 +3,14 @@ package com.example.guru2
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
+import android.media.Image
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import org.w3c.dom.Text
 import java.io.FileInputStream
 import java.util.*
 
@@ -19,6 +21,10 @@ class WaterEdit : AppCompatActivity() {
 
     lateinit var cal_day: Button //날짜 선택
     lateinit var cal_view: TextView // 선택한 날짜
+    lateinit var imageView: ImageView //첫문장 이모티콘
+    lateinit var textView: TextView //첫문장
+    lateinit var imageView2: ImageView //두번째문장 이모티콘
+    lateinit var textView2: TextView //두번째 문장
     lateinit var water1: ImageView //컵(잔)
     lateinit var water2: ImageView
     lateinit var water3: ImageView
@@ -28,13 +34,24 @@ class WaterEdit : AppCompatActivity() {
     lateinit var water7: ImageView
     lateinit var water8: ImageView
     lateinit var water_ml: EditText //ml 기록
-    lateinit var resultbutton: Button // resultbutton과 같은 기록하기 버튼
+    lateinit var textView3: TextView //ml 문장
+    lateinit var textView4: TextView //음수량 - ml 관련안내 문장
+    lateinit var resultbutton: Button // 기록하기 버튼
+
+    lateinit var textView6 :TextView //나의 음수량 문장
+    lateinit var water_editButton: Button //수정하기 버튼
+    lateinit var cups_selected: TextView //잔 체크 수
+    lateinit var water_ml_view: TextView //작성한 ml
+    lateinit var cup_result: ImageView //음수량결과 잔
+    lateinit var face_result: ImageView //음수량결과 표정
+    lateinit var textView5:TextView // 음수량 - 잔 관련 안내 문장
+    lateinit var water_view: TextView //음수량이 - 해요 문장
+    lateinit var water_result: TextView //음수량 결과
 
     var selectYear: Int = 0
     var selectMonth: Int = 0
     var selectDate: Int = 0
     var watercount : Int = 0 //선택한 잔의 갯수
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +63,6 @@ class WaterEdit : AppCompatActivity() {
         //UI값 생성
         cal_day = findViewById<Button>(R.id.cal_day)
         cal_view = findViewById<TextView>(R.id.cal_view)
-        //calendarView = findViewById<CalendarView>(R.id.calendarView)
         water1 = findViewById<ImageView>(R.id.water1)
         water2 = findViewById<ImageView>(R.id.water2)
         water3 = findViewById<ImageView>(R.id.water3)
@@ -57,6 +73,22 @@ class WaterEdit : AppCompatActivity() {
         water8 = findViewById<ImageView>(R.id.water8)
         water_ml = findViewById<EditText>(R.id.water_ml)
         resultbutton = findViewById<Button>(R.id.resultbutton)
+        imageView = findViewById<ImageView>(R.id.imageView)
+        textView = findViewById<TextView>(R.id.textView)
+        imageView2 = findViewById<ImageView>(R.id.imageView)
+        textView2 = findViewById<TextView>(R.id.textView2)
+        textView3 = findViewById<TextView>(R.id.textView3)
+        textView4 = findViewById<TextView>(R.id.textView4)
+
+        textView6 = findViewById<TextView>(R.id.textView6)
+        water_editButton= findViewById<Button>(R.id.water_editButton)
+        cups_selected= findViewById<TextView>(R.id.cups_selected)
+        water_ml_view= findViewById<TextView>(R.id.water_ml_view)
+        cup_result= findViewById<ImageView>(R.id.cup_result)
+        face_result= findViewById<ImageView>(R.id.face_result)
+        textView5= findViewById<TextView>(R.id.textView5)
+        water_view= findViewById<TextView>(R.id.water_view)
+        water_result= findViewById<TextView>(R.id.water_result)
 
         //날짜 선택
         cal_day.setOnClickListener {
@@ -146,14 +178,20 @@ class WaterEdit : AppCompatActivity() {
 
                 Toast.makeText(applicationContext, "기록 완료되었습니다.", Toast.LENGTH_SHORT).show()
 
-                val intent2 = Intent(this, WaterCheck::class.java)
-                intent2.putExtra("name", water_ml.text.toString())
-                if (water_ml.text.toString().length == 0) {
-                    Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
-                } else {
-                    intent2.putExtra("w1", watercount.toString())
-                    startActivity(intent2)
-                }
+//                val intent2 = Intent(this, WaterCheck::class.java)
+//                intent2.putExtra("intent_year", selectYear.toString())
+//                intent2.putExtra("intent_month", selectMonth.toString())
+//                intent2.putExtra("intent_date", selectDate.toString())
+//                intent2.putExtra("intent_watercount", str_watercount)
+//                intent2.putExtra("intent_waterml", str_waterml)
+//                startActivity(intent2)
+//                intent2.putExtra("name", water_ml.text.toString())
+//                if (water_ml.text.toString().length == 0) {
+//                    Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
+//                } else {
+//                    intent2.putExtra("w1", watercount.toString())
+//                    startActivity(intent2)
+//                }
             }
         }
 

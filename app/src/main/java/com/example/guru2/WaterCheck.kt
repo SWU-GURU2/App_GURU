@@ -15,7 +15,7 @@ import android.widget.TextView
 import org.w3c.dom.Text
 
 class WaterCheck : AppCompatActivity() {
-    lateinit var dbManger: WaterDBManger
+    lateinit var WaterDBManger: WaterDBManger
     lateinit var sqlitedb: SQLiteDatabase
 
     lateinit var water_editButton: Button //음수량 수정하기 버튼
@@ -25,13 +25,13 @@ class WaterCheck : AppCompatActivity() {
     lateinit var cup:ImageView
     lateinit var cups:TextView
 
-    var selectYear: Int = 0
-    var selectMonth: Int = 0
-    var selectDate: Int = 0
-    var cup_ml: Int = 0
-    var cup_clicked: Int = 0
+    lateinit var str_year: String
+    lateinit var str_month: String
+    lateinit var str_date: String
+    lateinit var str_watercount: String
+    lateinit var str_waterml: String
 
-    var watercount: Int = 0
+   // var watercount: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +45,15 @@ class WaterCheck : AppCompatActivity() {
         cup = findViewById<ImageView>(R.id.cup)
         cups = findViewById<TextView>(R.id.cups)
 
+        val intent = intent
+        str_year = intent.getStringExtra("intent_year").toString()
+        str_month = intent.getStringExtra("intent_month").toString()
+        str_date = intent.getStringExtra("intent_date").toString()
+        str_watercount = intent.getStringExtra("intent_watercount").toString()
+        str_waterml = intent.getStringExtra("intent_waterml").toString()
+
+        str_waterml = str_watercount + "잔"
+        water_ml_view.text = str_waterml +"ml"
 
 //        dbManger = WaterDBManger(this, "waterDB", null, 1 )
 //        sqlitedb = dbManger.readableDatabase
@@ -55,25 +64,43 @@ class WaterCheck : AppCompatActivity() {
 //        if(cursor.moveToNext()){
 //
 //        }
-
-        // 액티비티에 들어오자마자 바로 첨부된 값을 받아서 텍스트뷰에 반영
-        val intent4 = getIntent()
-        val name: String = intent4.getStringExtra("name")
-        water_ml_view.setText(name+" ml")
-
-        //음수량 확인
-        val intent7 = getIntent()
-        val w1: String = intent7.getStringExtra("w1")
-        cups.setText(w1+" 잔")
+//
+//        // 액티비티에 들어오자마자 바로 첨부된 값을 받아서 텍스트뷰에 반영
+//        val intent4 = getIntent()
+//        val name: String = intent4.getStringExtra("name")
+//        water_ml_view.setText(name+" ml")
+//
+//        //음수량 확인
+//        val intent7 = getIntent()
+//        val w1: String = intent7.getStringExtra("w1")
+//        cups.setText(w1+" 잔")
+//
+//        when {
+////            name.toInt() <= 600
+//                    w1.toInt() <= 3  -> {
+//                face.setImageResource(R.drawable.sad)
+//                cup.setImageResource(R.drawable.w_low)
+//                resultTextView.text = "부족"
+//            }
+//            w1.toInt() <= 6 -> {
+//                face.setImageResource(R.drawable.smile2)
+//                cup.setImageResource(R.drawable.w_medium)
+//                resultTextView.text = "적당"
+//            }
+//            else -> {
+//                face.setImageResource(R.drawable.happy)
+//                cup.setImageResource(R.drawable.w_full)
+//                resultTextView.text = "충분"
+//            }
+//        }
 
         when {
-//            name.toInt() <= 600
-                    w1.toInt() <= 3  -> {
+            str_watercount.toInt() <= 3 -> {
                 face.setImageResource(R.drawable.sad)
                 cup.setImageResource(R.drawable.w_low)
                 resultTextView.text = "부족"
             }
-            w1.toInt() <= 6 -> {
+            str_watercount.toInt() <= 6 -> {
                 face.setImageResource(R.drawable.smile2)
                 cup.setImageResource(R.drawable.w_medium)
                 resultTextView.text = "적당"
@@ -84,6 +111,8 @@ class WaterCheck : AppCompatActivity() {
                 resultTextView.text = "충분"
             }
         }
+
+
 
         //수정하기 버튼 클릭시 할 행동
         water_editButton.setOnClickListener {

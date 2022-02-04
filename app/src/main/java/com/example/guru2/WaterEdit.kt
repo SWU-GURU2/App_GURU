@@ -92,17 +92,6 @@ class WaterEdit : AppCompatActivity() {
 
         //날짜 선택
         cal_day.setOnClickListener {
-            water1.visibility = View.VISIBLE
-            water2.visibility = View.VISIBLE
-            water3.visibility = View.VISIBLE
-            water4.visibility = View.VISIBLE
-            water5.visibility = View.VISIBLE
-            water6.visibility = View.VISIBLE
-            water7.visibility = View.VISIBLE
-            water8.visibility = View.VISIBLE
-            water_ml.visibility = View.VISIBLE
-            resultbutton.visibility = View.VISIBLE
-
             var calendar = Calendar.getInstance()
             var selectYear = calendar.get(Calendar.YEAR)
             var selectMonth = calendar.get(Calendar.MONTH)
@@ -114,6 +103,17 @@ class WaterEdit : AppCompatActivity() {
             }
             var picker = DatePickerDialog(this, listener, selectYear, selectMonth, selectDay)
             picker.show()
+
+            water1.visibility = View.VISIBLE
+            water2.visibility = View.VISIBLE
+            water3.visibility = View.VISIBLE
+            water4.visibility = View.VISIBLE
+            water5.visibility = View.VISIBLE
+            water6.visibility = View.VISIBLE
+            water7.visibility = View.VISIBLE
+            water8.visibility = View.VISIBLE
+            water_ml.visibility = View.VISIBLE
+            resultbutton.visibility = View.VISIBLE
 
             //컵 클릭 효과
             water1.setOnClickListener {
@@ -171,12 +171,60 @@ class WaterEdit : AppCompatActivity() {
                 var str_date: String = selectDate.toString()
                 var str_watercount: String = watercount.toString()
                 var str_waterml: String = water_ml.text.toString()
+                cups_selected.text = (watercount.toString() + "잔")
+                water_ml_view.text = (str_waterml + "ml")
 
-                sqlitedb = WaterDBManger.writableDatabase
-                sqlitedb.execSQL("INSERT INTO water VALUES ("+ str_year+","+ str_month +","+ str_date +","+ "," + str_watercount + "," + str_waterml +")")
-                sqlitedb.close()
+                when {
+                    str_watercount.toInt() <= 3 -> {
+                        face_result.setImageResource(R.drawable.sad)
+                        cup_result.setImageResource(R.drawable.w_low)
+                        water_result.text = "부족"
+                    }
+                    str_watercount.toInt() <= 6 -> {
+                        face_result.setImageResource(R.drawable.smile2)
+                        cup_result.setImageResource(R.drawable.w_medium)
+                        water_result.text = "적당"
+                    }
+                    else -> {
+                        face_result.setImageResource(R.drawable.happy)
+                        cup_result.setImageResource(R.drawable.w_full)
+                        water_result.text = "충분"
+                    }
+                }
 
-                Toast.makeText(applicationContext, "기록 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                if (water_ml.text.toString().length == 0) {
+                    Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(applicationContext, "기록 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                    water1.visibility = View.INVISIBLE
+                    water2.visibility = View.INVISIBLE
+                    water3.visibility = View.INVISIBLE
+                    water4.visibility = View.INVISIBLE
+                    water5.visibility = View.INVISIBLE
+                    water6.visibility = View.INVISIBLE
+                    water7.visibility = View.INVISIBLE
+                    water8.visibility = View.INVISIBLE
+                    water_ml.visibility = View.INVISIBLE
+                    resultbutton.visibility = View.INVISIBLE
+                    cal_day.visibility = View.INVISIBLE
+                    textView.visibility = View.INVISIBLE
+                    textView2.visibility = View.INVISIBLE
+                    textView3.visibility = View.INVISIBLE
+                    textView4.visibility = View.INVISIBLE
+                    imageView2.visibility = View.INVISIBLE
+
+                    imageView.visibility = View.VISIBLE
+                    textView6.visibility = View.VISIBLE
+                    water_editButton.visibility = View.VISIBLE
+                    cups_selected.visibility = View.VISIBLE
+                    water_ml_view.visibility = View.VISIBLE
+                    cup_result.visibility = View.VISIBLE
+                    face_result.visibility = View.VISIBLE
+                    textView5.visibility = View.VISIBLE
+                    water_view.visibility = View.VISIBLE
+                    water_result.visibility = View.VISIBLE
+                }
 
 //                val intent2 = Intent(this, WaterCheck::class.java)
 //                intent2.putExtra("intent_year", selectYear.toString())
@@ -192,6 +240,35 @@ class WaterEdit : AppCompatActivity() {
 //                    intent2.putExtra("w1", watercount.toString())
 //                    startActivity(intent2)
 //                }
+            }
+
+            water_editButton.setOnClickListener{
+                water1.visibility = View.VISIBLE
+                water2.visibility = View.VISIBLE
+                water3.visibility = View.VISIBLE
+                water4.visibility = View.VISIBLE
+                water5.visibility = View.VISIBLE
+                water6.visibility = View.VISIBLE
+                water7.visibility = View.VISIBLE
+                water8.visibility = View.VISIBLE
+                water_ml.visibility = View.VISIBLE
+                resultbutton.visibility = View.VISIBLE
+                cal_day.visibility = View.VISIBLE
+                textView.visibility = View.VISIBLE
+                textView2.visibility = View.VISIBLE
+                textView3.visibility = View.VISIBLE
+                textView4.visibility = View.VISIBLE
+
+                textView6.visibility = View.INVISIBLE
+                water_editButton.visibility = View.INVISIBLE
+                cups_selected.visibility = View.INVISIBLE
+                water_ml_view.visibility = View.INVISIBLE
+                cup_result.visibility = View.INVISIBLE
+                face_result.visibility = View.INVISIBLE
+                textView5.visibility = View.INVISIBLE
+                water_view.visibility = View.INVISIBLE
+                water_result.visibility = View.INVISIBLE
+
             }
         }
 

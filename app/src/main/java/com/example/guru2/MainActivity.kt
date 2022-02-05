@@ -13,11 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 // 메인 창
 
 class MainActivity : AppCompatActivity() {
-
     var auth: FirebaseAuth? = null
     private lateinit var googleSignInClient: GoogleSignInClient
     lateinit var mealButton: Button
-
     lateinit var waterButton: Button
     lateinit var mentalButton: Button
     lateinit var healthButton: Button //운동버튼
@@ -63,11 +61,10 @@ class MainActivity : AppCompatActivity() {
 
         //음수량 수정 화면
          val waterButton = findViewById<Button>(R.id.waterButton)
-
         //버튼 클릭시 할 행동
         waterButton.setOnClickListener {
-            var intent = Intent(this, WaterEdit::class.java) //인텐트 생성
-            startActivity(intent)
+            var intent11 = Intent(this, WaterEdit::class.java) //인텐트 생성
+            startActivity(intent11)
         }
     }
 }

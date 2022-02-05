@@ -5,26 +5,36 @@
     <item
         android:id="@+id/main"
         android:icon="@drawable/house"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:title="Item"
         app:showAsAction="always|never" />
     <item
         android:id="@+id/sport"
         android:icon="@drawable/muscle"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:title="Item"
         app:showAsAction="always|never" />
     <item
         android:id="@+id/water"
         android:icon="@drawable/waterdrop"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:title="water"
         app:showAsAction="always" />
     <item
         android:id="@+id/mental"
         android:icon="@drawable/mental"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:title="mental"
         app:showAsAction="always" />
     <item
         android:id="@+id/meal"
         android:icon="@drawable/meal"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:title="Item"
         app:showAsAction="always" />
 

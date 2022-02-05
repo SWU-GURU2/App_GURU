@@ -16,8 +16,9 @@ import java.util.*
 
 class MentalDailyActivity: AppCompatActivity() {
     lateinit var dailyText: EditText
-    lateinit var dailyBtn:Button
-    lateinit var delbtn:Button
+    lateinit var dailyButton:Button
+    lateinit var daydelButton: Button
+    lateinit var doneButton:Button
     lateinit var fileName:String
     lateinit var dailycalendarView: CalendarView
     lateinit var feelingButton: Button
@@ -48,8 +49,9 @@ class MentalDailyActivity: AppCompatActivity() {
         ), MODE_PRIVATE)
         dailycalendarView=findViewById(R.id.dailycalendarView)
         dailyText= findViewById(R.id.dailyText)
-        dailyBtn = findViewById(R.id.dailyBtn)
-        delbtn=findViewById(R.id.delbtn)
+        dailyButton = findViewById(R.id.dailyButton)
+        daydelButton=findViewById(R.id.daydelButton)
+        doneButton=findViewById(R.id.doneButton)
         myDB = myDbHelper(this)
 
         val cal = Calendar.getInstance()
@@ -58,42 +60,47 @@ class MentalDailyActivity: AppCompatActivity() {
         val cDate = cal[Calendar.DATE]
 
         fileName = cYear.toString() + "_" + (cMonth + 1).toString() + "_" + cDate.toString()
-        dailyBtn.isEnabled = true
+        dailyButton.isEnabled = true
 
         dailycalendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             fileName = year.toString() + "_" + (month + 1).toString() + "_" +
                     dayOfMonth.toString()
             val str = readDiary(fileName)
             dailyText.setText(str)
-            //diaryText.setText(str)
-            dailyBtn.isEnabled = true
+            dailyButton.isEnabled = true
             dailyText.visibility=View.VISIBLE
-            dailyBtn.visibility=View.VISIBLE
-            delbtn.visibility= View.VISIBLE
+            dailyButton.visibility=View.VISIBLE
+            daydelButton.visibility= View.VISIBLE
+            doneButton.visibility=View.VISIBLE
         }
-
-        dailyBtn.setOnClickListener {
+        //내용저장+db연동
+        dailyButton.setOnClickListener {
             val str =dailyText.text.toString()
             sqlitedb= myDB.writableDatabase
-            if ( dailyBtn.text == "저장") {
+            if ( dailyButton.text == "저장") {
                 sqlitedb.execSQL("INSERT INTO myDiary VALUES(" + '"' + fileName + '"' + ", " +
                         '"' + str + '"' + ");")
-                dailyBtn.text = "수정"
+                dailyButton.text = "수정"
             } else  sqlitedb.execSQL("UPDATE myDiary SET content = \"$str\"")
             sqlitedb.close()
             Toast.makeText(applicationContext, fileName + "이 저장됨", Toast.LENGTH_SHORT).show()
         }
-        delbtn.setOnClickListener{
+        doneButton.setOnClickListener{
+            dailyButton.visibility=View.INVISIBLE
+            daydelButton.visibility=View.INVISIBLE
+            doneButton.visibility=View.INVISIBLE
+        }
+        daydelButton.setOnClickListener{
             dailyText.visibility=View.VISIBLE
-            dailyBtn.visibility=View.VISIBLE
-            delbtn.visibility=View.VISIBLE
+            dailyButton.visibility=View.VISIBLE
+            daydelButton.visibility=View.VISIBLE
+            doneButton.visibility=View.VISIBLE
             dailyText.setText("")
             sqlitedb=myDB.writableDatabase
             sqlitedb.execSQL("DELETE FROM myDiary WHERE diaryDate='"+fileName+
                     "';")
             Toast.makeText(applicationContext, fileName + "이 삭제됨", Toast.LENGTH_SHORT).show()
             sqlitedb.close()
-
         }
     }
 
@@ -120,9 +127,9 @@ class MentalDailyActivity: AppCompatActivity() {
             diaryStr = cursor.getString(1)
         }
         if (diaryStr == null) {
-            dailyBtn.text = "저장"
+            dailyButton.text = "저장"
         } else {
-            dailyBtn.text = "수정"
+            dailyButton.text = "수정"
         }
         return diaryStr
     }
@@ -132,12 +139,12 @@ class MentalDailyActivity: AppCompatActivity() {
         menuInflater.inflate(R.menu.menu,menu)
         return true
     }
-    //메뉴바 이동 하기
+    //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item?.itemId){
             R.id.main->{
-                val main:Intent= Intent(this,MainActivity::class.java)
-                startActivity(intent)
+                val mainIntent= Intent(this,MainActivity::class.java)
+                startActivity(mainIntent)
             }
             R.id.sport->{
                 val sportIntent=Intent(this,HealthListActivity::class.java)

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#00FFFFFF"
-    tools:context=".ColorsActivity">
+    tools:context=".MentalColorsActivity">
 
 
     <ImageView
@@ -107,25 +107,24 @@
     <TextView
         android:id="@+id/redText2"
         android:layout_width="140dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         android:layout_marginStart="28dp"
         android:background="#FFFFFF"
         android:backgroundTint="#80B2DDF4"
         android:text="   #열정 #활동적"
-        android:textColor="#121212"
+        android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/redText" />
 
     <TextView
         android:id="@+id/orangeText2"
         android:layout_width="140dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         android:background="#FFFFFF"
         android:backgroundTint="#80B2DDF4"
         android:text="   #창의성 #표현"
-        android:textColor="#121212"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
@@ -135,11 +134,11 @@
     <TextView
         android:id="@+id/yellowText2"
         android:layout_width="140dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         android:background="#FFFFFF"
         android:backgroundTint="#80B2DDF4"
         android:text="    #긍정 #활력 "
-        android:textColor="#121212"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.095"
@@ -149,11 +148,11 @@
     <TextView
         android:id="@+id/blueText2"
         android:layout_width="140dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         android:background="#FFFFFF"
         android:backgroundTint="#80B2DDF4"
         android:text="  #평화 #자신감"
-        android:textColor="#121212"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
@@ -163,11 +162,11 @@
     <TextView
         android:id="@+id/greenText2"
         android:layout_width="140dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         android:background="#FFFFFF"
         android:backgroundTint="#80B2DDF4"
         android:text="    #치유 #안정"
-        android:textColor="#121212"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.911"
@@ -177,11 +176,11 @@
     <TextView
         android:id="@+id/purpleText2"
         android:layout_width="140dp"
-        android:layout_height="20dp"
+        android:layout_height="22dp"
         android:background="#FFFFFF"
         android:backgroundTint="#80B2DDF4"
         android:text="  #생각의전환#꿈"
-        android:textColor="#121212"
+        android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.911"

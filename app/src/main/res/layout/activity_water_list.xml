@@ -7,7 +7,36 @@
     tools:context=".WaterList"
     android:background="@drawable/waterbg">
 
+    <CalendarView
+        android:id="@+id/calendarChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:theme="@style/CalTimeTheme"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/calChoiceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="270dp"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/buttons"
+        android:text="날짜 선택"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCalCheck"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
     <ScrollView
+        android:id="@+id/scrollWater"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout

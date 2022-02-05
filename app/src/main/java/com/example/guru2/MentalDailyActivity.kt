@@ -43,7 +43,7 @@ class MentalDailyActivity: AppCompatActivity() {
             startActivity(thirdIntent)
         }
 
-
+        //달력
         ActivityCompat.requestPermissions(this, arrayOf(
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         ), MODE_PRIVATE)
@@ -141,7 +141,7 @@ class MentalDailyActivity: AppCompatActivity() {
     }
     //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId){
+        when(item.itemId){
             R.id.main->{
                 val mainIntent= Intent(this,MainActivity::class.java)
                 startActivity(mainIntent)
@@ -150,6 +150,10 @@ class MentalDailyActivity: AppCompatActivity() {
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
             }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
+            }
             R.id.water->{
                 val waterIntent=Intent(this,WaterEdit::class.java)
                 startActivity(waterIntent)
@@ -157,10 +161,6 @@ class MentalDailyActivity: AppCompatActivity() {
             R.id.mental->{
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
-            }
-            R.id.meal->{
-                val mealIntent=Intent(this,MealWriteActivity::class.java)
-                startActivity(mealIntent)
             }
         }
         return super.onOptionsItemSelected(item)

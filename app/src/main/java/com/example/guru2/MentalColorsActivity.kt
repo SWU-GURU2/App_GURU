@@ -11,13 +11,6 @@ import android.widget.ImageButton
 import java.util.*
 
 class MentalColorsActivity : AppCompatActivity() {
-    //변수 선언
-    private var time=0
-    private var timerTask: Timer?=null
-    private var isRunning=false
-    private var lap=1
-
-
     //노래 재생 버튼
     lateinit var playR:ImageButton
     lateinit var playO:ImageButton
@@ -25,7 +18,6 @@ class MentalColorsActivity : AppCompatActivity() {
     lateinit var playG:ImageButton
     lateinit var playB:ImageButton
     lateinit var playP:ImageButton
-
     //노래 멈춤 버튼
     lateinit var stopR:ImageButton
     lateinit var stopO:ImageButton
@@ -35,18 +27,17 @@ class MentalColorsActivity : AppCompatActivity() {
     lateinit var stopP:ImageButton
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mental_colors)
 
         //노래-플레이어 연결
-        var musicRed = MediaPlayer.create(this, R.raw.play1)
-        var musicOrange=MediaPlayer.create(this,R.raw.play2)
-        var musicYellow=MediaPlayer.create(this,R.raw.play3)
-        var musicGreen=MediaPlayer.create(this,R.raw.play4)
-        var musicBlue=MediaPlayer.create(this,R.raw.play5)
-        var musicPurple=MediaPlayer.create(this,R.raw.play6)
+        val musicRed = MediaPlayer.create(this, R.raw.play1)
+        val musicOrange=MediaPlayer.create(this,R.raw.play2)
+        val musicYellow=MediaPlayer.create(this,R.raw.play3)
+        val musicGreen=MediaPlayer.create(this,R.raw.play4)
+        val musicBlue=MediaPlayer.create(this,R.raw.play5)
+        val musicPurple=MediaPlayer.create(this,R.raw.play6)
 
         playR= findViewById(R.id.playR)
         playO= findViewById(R.id.playO)
@@ -138,7 +129,7 @@ class MentalColorsActivity : AppCompatActivity() {
     }
     //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId){
+        when(item.itemId){
             R.id.main->{
                 val mainIntent= Intent(this,MainActivity::class.java)
                 startActivity(mainIntent)
@@ -146,6 +137,10 @@ class MentalColorsActivity : AppCompatActivity() {
             R.id.sport->{
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
+            }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
             }
             R.id.water->{
                 val waterIntent=Intent(this,WaterEdit::class.java)
@@ -155,12 +150,7 @@ class MentalColorsActivity : AppCompatActivity() {
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
             }
-            R.id.meal->{
-                val mealIntent=Intent(this,MealWriteActivity::class.java)
-                startActivity(mealIntent)
-            }
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

@@ -290,9 +290,9 @@ class WaterEdit : AppCompatActivity() {
         return true
     }
 
-    //메뉴바 이동 하기
+    //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId){
+        when(item.itemId){
             R.id.main->{
                 val mainIntent= Intent(this,MainActivity::class.java)
                 startActivity(mainIntent)
@@ -301,6 +301,10 @@ class WaterEdit : AppCompatActivity() {
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
             }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
+            }
             R.id.water->{
                 val waterIntent=Intent(this,WaterEdit::class.java)
                 startActivity(waterIntent)
@@ -308,10 +312,6 @@ class WaterEdit : AppCompatActivity() {
             R.id.mental->{
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
-            }
-            R.id.meal->{
-                val mealIntent=Intent(this,MealWriteActivity::class.java)
-                startActivity(mealIntent)
             }
         }
         return super.onOptionsItemSelected(item)

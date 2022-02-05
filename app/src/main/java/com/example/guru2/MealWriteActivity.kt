@@ -149,31 +149,26 @@ class MealWriteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
-            R.id.main -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+        when(item?.itemId){
+            R.id.main->{
+                val mainIntent= Intent(this,MainActivity::class.java)
+                startActivity(mainIntent)
             }
-            R.id.sport -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+            R.id.sport->{
+                val sportIntent=Intent(this,HealthListActivity::class.java)
+                startActivity(sportIntent)
             }
-            R.id.water -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+            R.id.water->{
+                val waterIntent=Intent(this,WaterEdit::class.java)
+                startActivity(waterIntent)
             }
-            R.id.mental -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+            R.id.mental->{
+                val mentalIntent=Intent(this,MentalDailyActivity::class.java)
+                startActivity(mentalIntent)
             }
-            R.id.meal -> {
-                val intent = Intent(this, MealChoiceActivity::class.java)
-                startActivity(intent)
-                return true
+            R.id.meal->{
+                val mealIntent:Intent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
             }
         }
         return super.onOptionsItemSelected(item)

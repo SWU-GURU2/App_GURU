@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(logoutIntent)
         }
 
+        //버튼 클릭-> 해당 화면 이동
         healthButton = findViewById<Button>(R.id.healthButton)
         healthButton.setOnClickListener{
             var healthIntent = Intent(this, HealthListActivity::class.java)
@@ -50,8 +51,13 @@ class MainActivity : AppCompatActivity() {
 
         mealButton = findViewById(R.id.mealButton)
         mealButton.setOnClickListener {
-            val intent = Intent(this, MealWriteActivity::class.java)
-            startActivity(intent)
+            val mealIntent = Intent(this, MealWriteActivity::class.java)
+            startActivity(mealIntent)
+        }
+        waterButton = findViewById(R.id.waterButton)
+        waterButton.setOnClickListener {
+            var waterIntent = Intent(this, WaterEdit::class.java)
+            startActivity(waterIntent)
         }
         mentalButton=findViewById(R.id.mentalButton)
         mentalButton.setOnClickListener{
@@ -59,12 +65,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(mentalIntent)
         }
 
-        //음수량 수정 화면
-         val waterButton = findViewById<Button>(R.id.waterButton)
-        //버튼 클릭시 할 행동
-        waterButton.setOnClickListener {
-            var intent11 = Intent(this, WaterEdit::class.java) //인텐트 생성
-            startActivity(intent11)
-        }
+
     }
 }

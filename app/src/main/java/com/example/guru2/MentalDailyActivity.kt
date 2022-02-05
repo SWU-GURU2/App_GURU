@@ -24,7 +24,7 @@ class MentalDailyActivity: AppCompatActivity() {
     lateinit var feelingButton: Button
     lateinit var colorsButton: Button
 
-    lateinit var myDB:myDbHelper
+    lateinit var mentalDB:myDbHelper
     lateinit var sqlitedb:SQLiteDatabase
 
 
@@ -52,7 +52,7 @@ class MentalDailyActivity: AppCompatActivity() {
         dailyButton = findViewById(R.id.dailyButton)
         daydelButton=findViewById(R.id.daydelButton)
         doneButton=findViewById(R.id.doneButton)
-        myDB = myDbHelper(this)
+        mentalDB = myDbHelper(this)
 
         val cal = Calendar.getInstance()
         val cYear = cal[Calendar.YEAR]
@@ -76,7 +76,7 @@ class MentalDailyActivity: AppCompatActivity() {
         //내용저장+db연동
         dailyButton.setOnClickListener {
             val str =dailyText.text.toString()
-            sqlitedb= myDB.writableDatabase
+            sqlitedb=  mentalDB.writableDatabase
             if ( dailyButton.text == "저장") {
                 sqlitedb.execSQL("INSERT INTO myDiary VALUES(" + '"' + fileName + '"' + ", " +
                         '"' + str + '"' + ");")
@@ -96,7 +96,7 @@ class MentalDailyActivity: AppCompatActivity() {
             daydelButton.visibility=View.VISIBLE
             doneButton.visibility=View.VISIBLE
             dailyText.setText("")
-            sqlitedb=myDB.writableDatabase
+            sqlitedb= mentalDB.writableDatabase
             sqlitedb.execSQL("DELETE FROM myDiary WHERE diaryDate='"+fileName+
                     "';")
             Toast.makeText(applicationContext, fileName + "이 삭제됨", Toast.LENGTH_SHORT).show()
@@ -104,7 +104,7 @@ class MentalDailyActivity: AppCompatActivity() {
         }
     }
 
-    inner class myDbHelper(context: Context?) : SQLiteOpenHelper(context, "myDB", null, 1) {
+    inner class myDbHelper(context: Context?) : SQLiteOpenHelper(context, "mentalDB", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
             try {
                 db!!.execSQL("CREATE TABLE myDiary (diaryDate char(10) primary key, content varchar(500));")
@@ -121,7 +121,7 @@ class MentalDailyActivity: AppCompatActivity() {
 
     fun readDiary(fName: String): String? {
         var diaryStr: String? = null
-        sqlitedb = myDB.readableDatabase
+        sqlitedb =  mentalDB.readableDatabase
         val cursor = sqlitedb.rawQuery("SELECT * FROM myDiary WHERE diaryDate = \"$fName\";", null)
         while (cursor.moveToNext()) {
             diaryStr = cursor.getString(1)
@@ -150,13 +150,16 @@ class MentalDailyActivity: AppCompatActivity() {
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
             }
-            //R.id->water
+            R.id.water->{
+                val waterIntent=Intent(this,WaterEdit::class.java)
+                startActivity(waterIntent)
+            }
             R.id.mental->{
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
             }
             R.id.meal->{
-                val mealIntent:Intent=Intent(this,MealWriteActivity::class.java)
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
                 startActivity(mealIntent)
             }
         }

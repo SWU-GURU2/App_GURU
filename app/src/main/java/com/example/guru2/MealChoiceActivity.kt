@@ -50,7 +50,8 @@ class MealChoiceActivity : AppCompatActivity() {
             selectYear = year
             selectMonth = month + 1
             selectDate = date
-            var alarm: String = selectYear.toString() + "년 " + selectMonth.toString() + "월 " + selectDate.toString() + "일 " + "기록을 확인합니다."
+            var alarm: String =
+                selectYear.toString() + "년 " + selectMonth.toString() + "월 " + selectDate.toString() + "일 " + "기록을 확인합니다."
             calChoiceButton.setOnClickListener {
                 Toast.makeText(applicationContext, alarm, Toast.LENGTH_SHORT).show()
                 calChoiceButton.visibility = View.GONE
@@ -65,7 +66,9 @@ class MealChoiceActivity : AppCompatActivity() {
 
                 var cursor: Cursor
                 cursor = sqlitedb.rawQuery(
-                    "SELECT * FROM meal WHERE year = " + selectYear + " AND month = " + selectMonth + " AND date = " + selectDate + ";", null)
+                    "SELECT * FROM meal WHERE year = " + selectYear + " AND month = " + selectMonth + " AND date = " + selectDate + ";",
+                    null
+                )
 
                 var num: Int = 0
                 while (cursor.moveToNext()) {
@@ -73,8 +76,10 @@ class MealChoiceActivity : AppCompatActivity() {
                     var str_hour = cursor.getString(cursor.getColumnIndex("hour")).toString()
                     var str_minute = cursor.getString(cursor.getColumnIndex("minute")).toString()
                     var str_title = cursor.getString(cursor.getColumnIndex("title")).toString()
-                    var str_food: String = cursor.getString(cursor.getColumnIndex("food")).toString()
-                    var str_kcal: String = cursor.getString(cursor.getColumnIndex("kcal")).toString()
+                    var str_food: String =
+                        cursor.getString(cursor.getColumnIndex("food")).toString()
+                    var str_kcal: String =
+                        cursor.getString(cursor.getColumnIndex("kcal")).toString()
 
                     var layout_item: LinearLayout = LinearLayout(this)
                     layout_item.orientation = LinearLayout.VERTICAL
@@ -102,7 +107,7 @@ class MealChoiceActivity : AppCompatActivity() {
                     tvKcal.setTextColor(Color.BLACK)
                     layout_item.addView(tvKcal)
 
-                    layout_item.setOnClickListener{
+                    layout_item.setOnClickListener {
                         val intent = Intent(this, MealDelete::class.java)
                         intent.putExtra("intent_year", selectYear.toString())
                         intent.putExtra("intent_month", selectMonth.toString())
@@ -126,37 +131,34 @@ class MealChoiceActivity : AppCompatActivity() {
             }
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
+    //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId) {
+        when (item?.itemId) {
             R.id.main -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+                val mainIntent = Intent(this, MainActivity::class.java)
+                startActivity(mainIntent)
             }
             R.id.sport -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+                val sportIntent = Intent(this, HealthListActivity::class.java)
+                startActivity(sportIntent)
             }
             R.id.water -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+                val waterIntent = Intent(this, WaterEdit::class.java)
+                startActivity(waterIntent)
             }
             R.id.mental -> {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                return true
+                val mentalIntent = Intent(this, MentalDailyActivity::class.java)
+                startActivity(mentalIntent)
             }
             R.id.meal -> {
-                val intent = Intent(this, MealWriteActivity::class.java)
-                startActivity(intent)
-                return true
+                val mealIntent = Intent(this, MealWriteActivity::class.java)
+                startActivity(mealIntent)
             }
         }
         return super.onOptionsItemSelected(item)

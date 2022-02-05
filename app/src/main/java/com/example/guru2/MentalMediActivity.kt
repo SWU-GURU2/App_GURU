@@ -178,24 +178,27 @@ class MentalMediActivity : AppCompatActivity() {
         return true
     }
 
-    //메뉴바 이동 하기
+    //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item?.itemId){
             R.id.main->{
-                val main:Intent= Intent(this,MainActivity::class.java)
-                startActivity(intent)
+                val mainIntent= Intent(this,MainActivity::class.java)
+                startActivity(mainIntent)
             }
             R.id.sport->{
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
             }
-            //R.id->water
+            R.id.water->{
+                val waterIntent=Intent(this,WaterEdit::class.java)
+                startActivity(waterIntent)
+            }
             R.id.mental->{
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
             }
             R.id.meal->{
-                val mealIntent:Intent=Intent(this,MealWriteActivity::class.java)
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
                 startActivity(mealIntent)
             }
         }

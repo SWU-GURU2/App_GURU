@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/excercise"
+        android:id="@+id/healthButton"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:layout_marginStart="30dp"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.385" />
 
     <Button
-        android:id="@+id/food"
+        android:id="@+id/mealButton"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/first_button"
@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.648" />
 
     <Button
-        android:id="@+id/mentalcare"
+        android:id="@+id/mentalButton"
         android:layout_width="250dp"
         android:layout_height="45dp"
         android:background="@drawable/first_button"

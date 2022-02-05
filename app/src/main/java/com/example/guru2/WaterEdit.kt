@@ -47,6 +47,7 @@ class WaterEdit : AppCompatActivity() {
     lateinit var textView5:TextView // 음수량 - 잔 관련 안내 문장
     lateinit var water_view: TextView //음수량이 - 해요 문장
     lateinit var water_result: TextView //음수량 결과
+    lateinit var savebutton: Button //저장버튼
 
     var selectYear: Int = 0
     var selectMonth: Int = 0
@@ -90,18 +91,32 @@ class WaterEdit : AppCompatActivity() {
         water_view= findViewById<TextView>(R.id.water_view)
         water_result= findViewById<TextView>(R.id.water_result)
 
+        savebutton = findViewById<Button>(R.id.savebutton)
+
         //날짜 선택
         cal_day.setOnClickListener {
+//            var calendar = Calendar.getInstance()
+//            var selectYear = calendar.get(Calendar.YEAR)
+//            var selectMonth = calendar.get(Calendar.MONTH)
+//            var selectDate = calendar.get(Calendar.DAY_OF_MONTH)
+//
+//            var listener = DatePickerDialog.OnDateSetListener { datePicker, selectYear, selectMonth, selectDate ->
+//                cal_view.text = "${selectYear}년 ${selectMonth + 1}월 ${selectDate}일"
+//                Toast.makeText(getApplicationContext(), "음수량 기록을 시작합니다", Toast.LENGTH_LONG).show();
+//            }
             var calendar = Calendar.getInstance()
             var selectYear = calendar.get(Calendar.YEAR)
             var selectMonth = calendar.get(Calendar.MONTH)
-            var selectDay = calendar.get(Calendar.DAY_OF_MONTH)
+            var selectDate = calendar.get(Calendar.DAY_OF_MONTH)
 
-            var listener = DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
-                cal_view.text = "${i}년 ${i2 + 1}월 ${i3}일"
+            var listener = DatePickerDialog.OnDateSetListener { datePicker, year, month, date ->
+                selectYear = year
+                selectMonth = month + 1
+                selectDate = date
+                cal_view.text = "${selectYear}년 ${selectMonth + 1}월 ${selectDate}일"
                 Toast.makeText(getApplicationContext(), "음수량 기록을 시작합니다", Toast.LENGTH_LONG).show();
             }
-            var picker = DatePickerDialog(this, listener, selectYear, selectMonth, selectDay)
+            var picker = DatePickerDialog(this, listener, selectYear, selectMonth, selectDate)
             picker.show()
 
             water1.visibility = View.VISIBLE
@@ -166,9 +181,6 @@ class WaterEdit : AppCompatActivity() {
             }
 
             resultbutton.setOnClickListener {
-                var str_year: String = selectYear.toString()
-                var str_month: String = selectMonth.toString()
-                var str_date: String = selectDate.toString()
                 var str_watercount: String = watercount.toString()
                 var str_waterml: String = water_ml.text.toString()
                 cups_selected.text = (watercount.toString() + "잔")
@@ -191,10 +203,9 @@ class WaterEdit : AppCompatActivity() {
                         water_result.text = "충분"
                     }
                 }
-
                 //ml를 입력하지 않았을 경우 메세지 출력
                 if (water_ml.text.toString().length == 0) {
-                    Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
                 }
                 //모든 정보 입력시
                 else {
@@ -225,9 +236,10 @@ class WaterEdit : AppCompatActivity() {
                     textView5.visibility = View.VISIBLE
                     water_view.visibility = View.VISIBLE
                     water_result.visibility = View.VISIBLE
+                    savebutton.visibility = View.VISIBLE
+
                 }
             }
-
             water_editButton.setOnClickListener{
                 water1.visibility = View.VISIBLE
                 water2.visibility = View.VISIBLE
@@ -257,9 +269,21 @@ class WaterEdit : AppCompatActivity() {
 
             }
         }
+        savebutton.setOnClickListener{
+            var str_year: String = selectYear.toString()
+            var str_month: String = selectMonth.toString()
+            var str_date: String = selectDate.toString()
+            var str_waterml: String = water_ml.text.toString()
 
+            sqlitedb = WaterDBManger.writableDatabase
+            sqlitedb.execSQL("INSERT INTO waterlist VALUES ("+str_year+","+ str_month+","+ str_date+","+ str_waterml+")")
+            sqlitedb.close()
+
+            Toast.makeText(applicationContext, "저장되었습니다.", Toast.LENGTH_SHORT).show()
+//            val intent = Intent(this, WaterList::class.java)
+//            startActivity(intent)
+        }
     }
-
     //메뉴바 추가
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)

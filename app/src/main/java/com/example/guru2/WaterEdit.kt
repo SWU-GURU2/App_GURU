@@ -257,6 +257,7 @@ class WaterEdit : AppCompatActivity() {
                 textView3.visibility = View.VISIBLE
                 textView4.visibility = View.VISIBLE
 
+
                 textView6.visibility = View.INVISIBLE
                 water_editButton.visibility = View.INVISIBLE
                 cups_selected.visibility = View.INVISIBLE
@@ -266,7 +267,7 @@ class WaterEdit : AppCompatActivity() {
                 textView5.visibility = View.INVISIBLE
                 water_view.visibility = View.INVISIBLE
                 water_result.visibility = View.INVISIBLE
-
+                savebutton.visibility = View.INVISIBLE
             }
         }
         savebutton.setOnClickListener{

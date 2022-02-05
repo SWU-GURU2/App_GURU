@@ -18,7 +18,6 @@ import java.util.*
 class WaterEdit : AppCompatActivity() {
     lateinit var WaterDBManger: WaterDBManger
     lateinit var sqlitedb: SQLiteDatabase
-
     lateinit var cal_day: Button //날짜 선택
     lateinit var cal_view: TextView // 선택한 날짜
     lateinit var imageView: ImageView //첫문장 이모티콘

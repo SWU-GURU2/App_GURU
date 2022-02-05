@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import org.w3c.dom.Text
 
 class MealChoiceActivity : AppCompatActivity() {
 
@@ -21,6 +22,8 @@ class MealChoiceActivity : AppCompatActivity() {
     lateinit var scrollMeal: ScrollView
     lateinit var tvChoice: TextView
     lateinit var backChoice: ImageView
+    lateinit var tvNotice: TextView
+    lateinit var tvNotice2: TextView
 
     var selectYear: Int = 0
     var selectMonth: Int = 0
@@ -40,6 +43,8 @@ class MealChoiceActivity : AppCompatActivity() {
         calendarChoice = findViewById(R.id.calendarChoice)
         tvChoice = findViewById(R.id.tvChoice)
         backChoice = findViewById(R.id.backChoice)
+        tvNotice = findViewById(R.id.tvNotice)
+        tvNotice2 = findViewById(R.id.tvNotice2)
 
         calendarChoice.setOnDateChangeListener { view, year, month, date ->
             selectYear = year
@@ -54,6 +59,8 @@ class MealChoiceActivity : AppCompatActivity() {
                 scrollMeal.visibility = ScrollView.VISIBLE
                 layout.visibility = LinearLayout.VISIBLE
                 backChoice.visibility = ImageView.INVISIBLE
+                tvNotice.visibility = View.GONE
+                tvNotice2.visibility = View.GONE
 
 
                 var cursor: Cursor

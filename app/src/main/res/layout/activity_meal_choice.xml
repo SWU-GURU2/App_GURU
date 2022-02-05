@@ -80,7 +80,7 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvNotice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/calendarChoice" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvNotice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -101,6 +101,6 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNotice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

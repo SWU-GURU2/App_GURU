@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".HealthCalActivity">
 
+    <ImageView
+        android:id="@+id/calbg"
+        android:layout_width="415dp"
+        android:layout_height="737dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dailyback" />
+
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/barChart"
         android:layout_width="370dp"

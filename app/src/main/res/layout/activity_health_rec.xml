@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.601"
-        app:srcCompat="@drawable/bg1" />
+        app:srcCompat="@drawable/dailyback" />
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -45,8 +45,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="372dp"
-        android:layout_height="192dp"
+        android:layout_width="373dp"
+        android:layout_height="170dp"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +68,7 @@
         android:layout_width="182dp"
         android:layout_height="43dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="420dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
         android:layout_width="182dp"
         android:layout_height="43dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="460dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +101,7 @@
         android:layout_width="182dp"
         android:layout_height="43dp"
         android:layout_marginStart="212dp"
-        android:layout_marginTop="448dp"
+        android:layout_marginTop="460dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +112,7 @@
         android:layout_width="182dp"
         android:layout_height="43dp"
         android:layout_marginStart="212dp"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="420dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"

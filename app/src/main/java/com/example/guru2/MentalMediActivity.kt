@@ -12,15 +12,13 @@ import java.util.*
 import kotlin.concurrent.timer
 
 class MentalMediActivity : AppCompatActivity() {
-
     //변수 (타이머)
     private var time=0
     private var timerTask: Timer?=null
     private var isRunning=false
     private var lap=1
 
-
-    //기분 버튼 변수 선언
+    //기분 버튼 변수
     lateinit var vhapButton: Button
     lateinit var hapButton: Button
     lateinit var soButton: Button
@@ -42,7 +40,6 @@ class MentalMediActivity : AppCompatActivity() {
     lateinit var lineimg: ImageView
     lateinit var mediButton:Button
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mental_medi)
@@ -56,7 +53,6 @@ class MentalMediActivity : AppCompatActivity() {
         surpriseButton = findViewById(R.id.surpriseButton)
         refreshButton = findViewById(R.id.refreshButton)
         mediButton=findViewById(R.id.mediButton)
-
 
         //타이머 위젯 연결
         meditateText = findViewById(R.id.meditateText)
@@ -85,11 +81,10 @@ class MentalMediActivity : AppCompatActivity() {
             mediIninButton.visibility=View.VISIBLE
         }
         //넘어가기-> colors로 넘어가기
-        val ColorIntent=Intent(this,MentalColorsActivity::class.java)
+        val colorIntent=Intent(this,MentalColorsActivity::class.java)
         mediButton.setOnClickListener{
-            startActivity(ColorIntent)
+            startActivity(colorIntent)
         }
-
 
         //타이머 설정
         mediSetButton.setOnClickListener {
@@ -103,9 +98,6 @@ class MentalMediActivity : AppCompatActivity() {
         mediIninButton.setOnClickListener{
             reset()
         }
-
-
-
         //기분 나타내는 버튼 누르기 설정
         vhapButton.setOnClickListener(ButtonListener())
         hapButton.setOnClickListener(ButtonListener())
@@ -140,7 +132,6 @@ class MentalMediActivity : AppCompatActivity() {
         }
     }
 
-
     private fun pause(){
         timerTask?.cancel()
     }
@@ -162,25 +153,21 @@ class MentalMediActivity : AppCompatActivity() {
     // 타이머 멈추는 시간 설정
     private fun reset(){
         timerTask?.cancel()
-
         time=0
         isRunning=false
         minTextView.text="00"
         secTextView.text="00"
-
         lap=1
     }
-
 
     //메뉴바 추가
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
         return true
     }
-
     //메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId){
+        when(item.itemId){
             R.id.main->{
                 val mainIntent= Intent(this,MainActivity::class.java)
                 startActivity(mainIntent)
@@ -188,6 +175,10 @@ class MentalMediActivity : AppCompatActivity() {
             R.id.sport->{
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
+            }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
             }
             R.id.water->{
                 val waterIntent=Intent(this,WaterEdit::class.java)
@@ -197,12 +188,7 @@ class MentalMediActivity : AppCompatActivity() {
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
             }
-            R.id.meal->{
-                val mealIntent=Intent(this,MealWriteActivity::class.java)
-                startActivity(mealIntent)
-            }
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

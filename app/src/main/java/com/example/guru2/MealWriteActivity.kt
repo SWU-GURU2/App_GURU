@@ -116,24 +116,29 @@ class MealWriteActivity : AppCompatActivity() {
 
             // 입력 완료 버튼 누르면
             writeButton.setOnClickListener {
-                var str_year: String = selectYear.toString()
-                var str_month: String = selectMonth.toString()
-                var str_date: String = selectDate.toString()
-                var str_hour: String = selectHour.toString()
-                var str_minute: String = selectMinute.toString()
-                var str_title: String = editTextTitle.text.toString()
-                var str_food: String = editTextFood.text.toString()
-                var str_kcal:String = editTextKcal.text.toString()
+                if(editTextTitle.text.toString().length == 0 || editTextFood.text.toString().length == 0 || editTextKcal.text.toString().length == 0) {
+                    Toast.makeText(applicationContext, "빈칸이 있습니다. 빈칸을 작성해주세요.", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    var str_year: String = selectYear.toString()
+                    var str_month: String = selectMonth.toString()
+                    var str_date: String = selectDate.toString()
+                    var str_hour: String = selectHour.toString()
+                    var str_minute: String = selectMinute.toString()
+                    var str_title: String = editTextTitle.text.toString()
+                    var str_food: String = editTextFood.text.toString()
+                    var str_kcal:String = editTextKcal.text.toString()
 
-                sqlitedb = MealdbManager.writableDatabase
+                    sqlitedb = MealdbManager.writableDatabase
 
-                // db에 식단 기록 등록
-                sqlitedb.execSQL("INSERT INTO meal VALUES('"+str_title+"', " +str_year+", " +str_month+", " +str_date+", " +str_hour+", " +str_minute+", '" +str_food+"', " +str_kcal+")")
-                sqlitedb.close()
+                    // db에 식단 기록 등록
+                    sqlitedb.execSQL("INSERT INTO meal VALUES('"+str_title+"', " +str_year+", " +str_month+", " +str_date+", " +str_hour+", " +str_minute+", '" +str_food+"', " +str_kcal+")")
+                    sqlitedb.close()
 
-                Toast.makeText(applicationContext, "입력 완료되었습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MealChoiceActivity::class.java)
-                startActivity(intent)
+                    Toast.makeText(applicationContext, "입력 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MealChoiceActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
         

@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_health_list.*
 
@@ -45,22 +46,30 @@ class HealthListActivity : AppCompatActivity() {
         dbHealthManager  = DBHealthManager(this,"todayHealth",null,1)
 
         nextButton.setOnClickListener {
+            //모든 값이 입력되지 않으면 다른 화면으로 넘어가지 못하게 확인
+            if(exercise_1.getText().toString().equals("") || exercise_1.getText().toString() == null
+                    || exercise_2.getText().toString().equals("") || exercise_2.getText().toString() == null
+                    || exercise_3.getText().toString().equals("") || exercise_3.getText().toString() == null
+                    || exercise_4.getText().toString().equals("") || exercise_4.getText().toString() == null
+                    || exercise_5.getText().toString().equals("") || exercise_5.getText().toString() == null
+                    ){
+                Toast.makeText(getApplicationContext(), "운동시간을 모두 작성해주세요.", Toast.LENGTH_LONG).show();
+            }
+            else{
+                sqlitehealthdb = dbHealthManager.writableDatabase
+                sqlitehealthdb.execSQL("INSERT INTO todayHealth VALUES ('"+exercise_1+"', '"+exercise_2+
+                        "', '"+ exercise_3+"', '"+exercise_4+"', '"+exercise_5+"')")
+                sqlitehealthdb.close()
 
-           // if(TextUtils.isEmpty(exercise_1.getText()))
-            sqlitehealthdb = dbHealthManager.writableDatabase
-            sqlitehealthdb.execSQL("INSERT INTO todayHealth VALUES ('"+exercise_1+"', '"+exercise_2+
-                    "', '"+ exercise_3+"', '"+exercise_4+"', '"+exercise_5+"')")
-            sqlitehealthdb.close()
-
-            //HealthCalActivity로 인텐트 값 넘김
-            var intent = Intent(this, HealthCalActivity::class.java)
-            intent.putExtra("가슴 운동", exercise_1.text.toString())
-            intent.putExtra("팔 운동", exercise_2.text.toString())
-            intent.putExtra("어깨ㆍ등 운동", exercise_3.text.toString())
-            intent.putExtra("다리 운동", exercise_4.text.toString())
-            intent.putExtra("복근 운동", exercise_5.text.toString())
-            startActivity(intent)
-
+                //HealthCalActivity로 인텐트 값 넘김
+                var intent = Intent(this, HealthCalActivity::class.java)
+                intent.putExtra("가슴 운동", exercise_1.text.toString())
+                intent.putExtra("팔 운동", exercise_2.text.toString())
+                intent.putExtra("어깨ㆍ등 운동", exercise_3.text.toString())
+                intent.putExtra("다리 운동", exercise_4.text.toString())
+                intent.putExtra("복근 운동", exercise_5.text.toString())
+                startActivity(intent)
+            }
         }
     }
     //메뉴바 설정

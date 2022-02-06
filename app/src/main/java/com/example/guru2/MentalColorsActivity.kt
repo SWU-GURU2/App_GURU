@@ -143,7 +143,7 @@ class MentalColorsActivity : AppCompatActivity() {
                 startActivity(mealIntent)
             }
             R.id.water->{
-                val waterIntent=Intent(this,WaterEdit::class.java)
+                val waterIntent=Intent(this,WaterCheck::class.java)
                 startActivity(waterIntent)
             }
             R.id.mental->{

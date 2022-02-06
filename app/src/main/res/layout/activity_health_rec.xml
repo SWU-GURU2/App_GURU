@@ -23,6 +23,7 @@
         android:layout_width="428dp"
         android:layout_height="313dp"
         android:layout_marginTop="76dp"
+        android:theme="@style/CalTimeTheme"
         android:selectedWeekBackgroundColor="#323232"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

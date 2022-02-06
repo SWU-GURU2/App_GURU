@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Build.VERSION_CODES
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_health_list.*
 
 class HealthListActivity : AppCompatActivity() {
 
+    //변수 선언
     lateinit var dbHealthManager: DBHealthManager
     lateinit var sqlitehealthdb : SQLiteDatabase
     lateinit var nextButton: Button
@@ -32,6 +34,7 @@ class HealthListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_health_list)
 
+        //위젯과 연결
         nextButton = findViewById<Button>(R.id.nextButton)
         exercise_1 = findViewById<EditText>(R.id.exercise_1)
         exercise_2 = findViewById<EditText>(R.id.exercise_2)
@@ -42,11 +45,14 @@ class HealthListActivity : AppCompatActivity() {
         dbHealthManager  = DBHealthManager(this,"todayHealth",null,1)
 
         nextButton.setOnClickListener {
+
+           // if(TextUtils.isEmpty(exercise_1.getText()))
             sqlitehealthdb = dbHealthManager.writableDatabase
             sqlitehealthdb.execSQL("INSERT INTO todayHealth VALUES ('"+exercise_1+"', '"+exercise_2+
                     "', '"+ exercise_3+"', '"+exercise_4+"', '"+exercise_5+"')")
             sqlitehealthdb.close()
 
+            //HealthCalActivity로 인텐트 값 넘김
             var intent = Intent(this, HealthCalActivity::class.java)
             intent.putExtra("가슴 운동", exercise_1.text.toString())
             intent.putExtra("팔 운동", exercise_2.text.toString())
@@ -57,7 +63,7 @@ class HealthListActivity : AppCompatActivity() {
 
         }
     }
-
+    //메뉴바 설정
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
         return true

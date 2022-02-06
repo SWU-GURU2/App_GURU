@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+// 식단 DB 관리
 class MealDBManager(
     context: Context?,
     name: String?,

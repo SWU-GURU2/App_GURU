@@ -24,7 +24,7 @@ class WaterCheck : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_water_check)
+        setContentView(R.layout.activity_water_check2)
 
         WaterDBManger = WaterDBManger(this, "waterlist", null, 1 )
         sqlitedb = WaterDBManger.readableDatabase

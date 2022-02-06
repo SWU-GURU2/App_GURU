@@ -28,7 +28,7 @@ class WaterDelete : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_water_delete)
+        setContentView(R.layout.activity_water_delete2)
 
         watertext.findViewById<TextView>(R.id.watertext)
         deletebutton.findViewById<Button>(R.id.deletebutton)

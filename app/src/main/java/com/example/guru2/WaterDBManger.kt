@@ -11,7 +11,6 @@ class WaterDBManger(
     version: Int
 ) : SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(db: SQLiteDatabase?) {
-
         db!!.execSQL("CREATE TABLE waterlist (year INTEGER, month INTEGER, date INTEGER, water INTEGER" +")")
     }
 

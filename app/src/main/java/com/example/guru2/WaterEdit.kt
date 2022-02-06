@@ -62,7 +62,7 @@ class WaterEdit : AppCompatActivity() {
         setContentView(R.layout.activity_water_edit)
 
         //데이터베이스 연결
-        WaterDBManger = WaterDBManger(this, "waterDB", null, 1)
+        WaterDBManger = WaterDBManger(this, "waterlist", null, 1)
 
         //UI값 생성
         calendarView = findViewById<CalendarView>(R.id.calendarView)
@@ -107,7 +107,7 @@ class WaterEdit : AppCompatActivity() {
 
             //날짜 선택
             cal_day.setOnClickListener {
-                cal_view.text = selectYear.toString() + "년" + " " + "0" + selectMonth.toString() + "월" + " " + "0" + selectDate.toString() + "일"
+                cal_view.text = selectYear.toString() + "년" + " "  + selectMonth.toString() + "월" + " " + selectDate.toString() + "일"
 
                 calendarView.visibility = View.INVISIBLE
                 cal_day.visibility = View.INVISIBLE
@@ -208,7 +208,7 @@ class WaterEdit : AppCompatActivity() {
                     }
                     //ml를 입력하지 않았을 경우 메세지 출력
                     if (water_ml.text.toString().length == 0) {
-                        //Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "ml까지 작성해주세요. 한잔당 200ml입니다", Toast.LENGTH_LONG).show();
                     }
                     //모든 정보 입력시
                     else {
@@ -259,7 +259,7 @@ class WaterEdit : AppCompatActivity() {
                 sqlitedb.close()
 
                 Toast.makeText(applicationContext, "저장되었습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, WaterList::class.java)
+                val intent = Intent(this, WaterCheck::class.java)
                 intent.putExtra("year",str_year)
                 intent.putExtra("month",str_month)
                 intent.putExtra("date",str_date)
@@ -334,7 +334,6 @@ class WaterEdit : AppCompatActivity() {
             }
         }
     }
-
 
     //메뉴바 추가
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

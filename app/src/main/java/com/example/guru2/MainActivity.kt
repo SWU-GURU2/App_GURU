@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         //버튼 클릭시 할 행동
         waterButton.setOnClickListener {
-            var intent = Intent(this, WaterEdit::class.java) //인텐트 생성
+            var intent = Intent(this, WaterCheck::class.java) //인텐트 생성
             startActivity(intent)
         }
     }

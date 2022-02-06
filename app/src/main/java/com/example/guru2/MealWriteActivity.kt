@@ -159,7 +159,7 @@ class MealWriteActivity : AppCompatActivity() {
                 startActivity(sportIntent)
             }
             R.id.meal->{
-                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                val mealIntent=Intent(this,MealChoiceActivity::class.java)
                 startActivity(mealIntent)
             }
             R.id.water->{

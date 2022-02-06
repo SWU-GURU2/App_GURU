@@ -11,17 +11,18 @@
         android:roundIcon="@drawable/health"
         android:supportsRtl="true"
         android:theme="@style/Theme.Guru2">
-        <activity android:name=".WaterList"></activity>
-        <activity android:name=".MentalColorsActivity"></activity>
+        <activity android:name=".WaterDelete"></activity>
+        <activity android:name=".WaterCheck" />
+        <activity android:name=".MentalColorsActivity" />
         <activity android:name=".MentalMediActivity" />
         <activity android:name=".MentalDailyActivity" />
         <activity android:name=".MealDelete" />
         <activity android:name=".MealChoiceActivity" />
         <activity android:name=".MealWriteActivity" />
         <activity android:name=".WaterEdit" />
-        <activity android:name=".HealthListActivity"/>
-        <activity android:name=".HealthCalActivity"/>
-        <activity android:name=".HealthRecActivity"/>
+        <activity android:name=".HealthListActivity" />
+        <activity android:name=".HealthCalActivity" />
+        <activity android:name=".HealthRecActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

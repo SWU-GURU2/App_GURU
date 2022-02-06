@@ -8,22 +8,33 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.View
+import android.widget.*
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class WaterList : AppCompatActivity() {
+class WaterCheck : AppCompatActivity() {
+    lateinit var WaterDBManger: WaterDBManger
+    lateinit var sqlitedb: SQLiteDatabase
+    lateinit var layout: LinearLayout
+    lateinit var scrollWater: ScrollView
+    lateinit var bgChoice:ImageView
+    lateinit var watertext:TextView
+    lateinit var textView8:TextView
+    lateinit var addButton:FloatingActionButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        lateinit var WaterDBManger: WaterDBManger
-        lateinit var sqlitedb: SQLiteDatabase
-        lateinit var layout: LinearLayout
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_water_list)
+        setContentView(R.layout.activity_water_check)
 
-        WaterDBManger = WaterDBManger(this, "waterDB", null, 1 )
+        WaterDBManger = WaterDBManger(this, "waterlist", null, 1 )
         sqlitedb = WaterDBManger.readableDatabase
 
         layout = findViewById(R.id.waterlist)
+        scrollWater = findViewById(R.id.scrollWater)
+        bgChoice = findViewById(R.id.bgChoice)
+        watertext = findViewById(R.id.watertext)
+        textView8 = findViewById(R.id.textView8)
+        addButton = findViewById(R.id.addButton)
 
         var cursor: Cursor
         cursor = sqlitedb.rawQuery("SELECT * FROM waterlist", null)
@@ -40,25 +51,31 @@ class WaterList : AppCompatActivity() {
             layout_item.id = num
 
             var tvCalView: TextView = TextView(this)
-            tvCalView.text = str_year + "년" + str_month + "월" + str_date + "일"
-            tvCalView.textSize = 25F
-            tvCalView.setBackgroundColor(Color.WHITE)
+            tvCalView.text = str_year + "년" + str_month + "월" + str_date + "일 음수량"
+            tvCalView.textSize = 20F
+//                tvCalView.setBackgroundColor(Color.parseColor("#8DE4FF"))
+            tvCalView.setBackgroundColor(Color.parseColor("#FAF2EE"))
             tvCalView.setTextColor(Color.BLACK)
             layout_item.addView(tvCalView)
 
             var tvWater: TextView = TextView(this)
-            tvWater.text = str_waterml
-            tvWater.textSize = 25F
+            tvWater.text = str_waterml+"ml"
+            tvWater.textSize = 20F
             tvWater.setBackgroundColor(Color.WHITE)
-            tvWater.setTextColor(Color.BLACK)
+            tvWater.setTextColor(Color.GRAY)
             layout_item.addView(tvWater)
 
-            layout_item.setOnClickListener{
+            addButton.setOnClickListener {
                 val intent = Intent(this, WaterEdit::class.java)
-                intent.putExtra("intent_year", str_year.toString())
-                intent.putExtra("intent_month", str_month.toString())
-                intent.putExtra("intent_date", str_date.toString())
-                intent.putExtra("intent_ml", str_waterml)
+                startActivity(intent)
+            }
+
+            layout_item.setOnClickListener{
+                val intent = Intent(this, WaterDelete::class.java)
+                intent.putExtra("year", str_year)
+                intent.putExtra("month", str_month)
+                intent.putExtra("date", str_date)
+                intent.putExtra("water", str_waterml)
                 startActivity(intent)
             }
             layout.addView(layout_item)
@@ -68,15 +85,15 @@ class WaterList : AppCompatActivity() {
         sqlitedb.close()
         WaterDBManger.close()
     }
-
     //메뉴바 추가
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
         return true
     }
-    //메뉴바 이동
+
+    //메뉴바 이동 하기
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item?.itemId){
+        when(item.itemId){
             R.id.main->{
                 val mainIntent= Intent(this,MainActivity::class.java)
                 startActivity(mainIntent)
@@ -85,17 +102,17 @@ class WaterList : AppCompatActivity() {
                 val sportIntent=Intent(this,HealthListActivity::class.java)
                 startActivity(sportIntent)
             }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
+            }
             R.id.water->{
-                val waterIntent=Intent(this,WaterEdit::class.java)
+                val waterIntent=Intent(this,WaterCheck::class.java)
                 startActivity(waterIntent)
             }
             R.id.mental->{
                 val mentalIntent=Intent(this,MentalDailyActivity::class.java)
                 startActivity(mentalIntent)
-            }
-            R.id.meal->{
-                val mealIntent=Intent(this,MealWriteActivity::class.java)
-                startActivity(mealIntent)
             }
         }
         return super.onOptionsItemSelected(item)

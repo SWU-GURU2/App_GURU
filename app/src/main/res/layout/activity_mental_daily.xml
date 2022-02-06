@@ -84,7 +84,7 @@
         android:layout_marginEnd="8dp"
         android:text="오늘 나의 하루는"
         android:textColor="#0C0C0C"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.239"

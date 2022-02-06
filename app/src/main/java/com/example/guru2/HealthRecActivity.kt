@@ -21,7 +21,6 @@ class HealthRecActivity : AppCompatActivity() {
     lateinit var exec5 : TextView
 
     @RequiresApi(VERSION_CODES.O)
-    //@RequiresApi(VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_health_rec)
@@ -80,46 +79,6 @@ class HealthRecActivity : AppCompatActivity() {
                 exec4.text = ""
                 exec5.text = ""
             }
-
-
-
-
-                /* 원 그래프
-                chart.setUsePercentValues(false)
-
-                val entries = ArrayList<PieEntry>()
-                entries.add(PieEntry(exercise_1, "가슴 운동"))
-                entries.add(PieEntry(exercise_2, "팔 운동"))
-                entries.add(PieEntry(exercise_3, "어깨ㆍ등 운동"))
-                entries.add(PieEntry(exercise_4, "다리 운동"))
-                entries.add(PieEntry(exercise_5, "복근 운동"))
-
-                val colorsItem = ArrayList<Int>()
-                for (c in ColorTemplate.VORDIPLOM_COLORS) colorsItem.add(c)
-                for (c in ColorTemplate.JOYFUL_COLORS) colorsItem.add(c)
-                for (c in COLORFUL_COLORS) colorsItem.add(c)
-                for (c in ColorTemplate.LIBERTY_COLORS) colorsItem.add(c)
-                for (c in ColorTemplate.PASTEL_COLORS) colorsItem.add(c)
-                colorsItem.add(ColorTemplate.getHoloBlue())
-
-                val pieDataSet = PieDataSet(entries, "")
-                pieDataSet.apply {
-                    colors = colorsItem
-                    valueTextColor = Color.BLACK
-                    valueTextSize = 12f
-                }
-
-                val pieData = PieData(pieDataSet)
-                chart.apply {
-                    data = pieData
-                    description.isEnabled = false
-                    isRotationEnabled = false
-                    centerText = "운동 기록"
-                    setEntryLabelColor(Color.BLACK)
-                    animateY(1400, Easing.EaseInOutQuad)
-                    animate()
-                }*/
-
         }
     }
 }

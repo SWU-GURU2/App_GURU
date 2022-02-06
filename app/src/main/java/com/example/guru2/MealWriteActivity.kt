@@ -9,6 +9,9 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 
+
+//식단 기록 하기 화면
+
 class MealWriteActivity : AppCompatActivity() {
     lateinit var MealdbManager: MealDBManager
     lateinit var sqlitedb: SQLiteDatabase
@@ -49,10 +52,13 @@ class MealWriteActivity : AppCompatActivity() {
         writeButton = findViewById(R.id.writeButton)
         editTextTitle = findViewById(R.id.editTextTitle)
 
+        // 달력에서 날짜 누르고
         calendarWrite.setOnDateChangeListener { view, year, month, date ->
             selectYear = year
             selectMonth = month + 1
             selectDate = date
+
+            //날짜 선택 버튼 누르면
             calWriteButton.setOnClickListener {
                 if (selectMonth < 10) {
                     if (date < 10) {
@@ -107,6 +113,8 @@ class MealWriteActivity : AppCompatActivity() {
                     writeButton.visibility = View.VISIBLE
                 }
             }
+
+            // 입력 완료 버튼 누르면
             writeButton.setOnClickListener {
                 var str_year: String = selectYear.toString()
                 var str_month: String = selectMonth.toString()
@@ -118,6 +126,8 @@ class MealWriteActivity : AppCompatActivity() {
                 var str_kcal:String = editTextKcal.text.toString()
 
                 sqlitedb = MealdbManager.writableDatabase
+
+                // db에 식단 기록 등록
                 sqlitedb.execSQL("INSERT INTO meal VALUES('"+str_title+"', " +str_year+", " +str_month+", " +str_date+", " +str_hour+", " +str_minute+", '" +str_food+"', " +str_kcal+")")
                 sqlitedb.close()
 
@@ -126,7 +136,8 @@ class MealWriteActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
+        
+        // 날짜 다시 선택 버튼 누르면
         calBackButton.setOnClickListener {
             calendarWrite.visibility = View.VISIBLE
             calWriteButton.visibility = View.VISIBLE
@@ -147,7 +158,7 @@ class MealWriteActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
-    //메뉴바 이동
+    // 메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.main->{

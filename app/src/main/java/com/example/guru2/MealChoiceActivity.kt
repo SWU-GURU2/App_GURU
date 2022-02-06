@@ -12,6 +12,8 @@ import android.view.View
 import android.widget.*
 import org.w3c.dom.Text
 
+//식단 기록 보는 화면
+
 class MealChoiceActivity : AppCompatActivity() {
 
     lateinit var MealdbManager: MealDBManager
@@ -46,12 +48,14 @@ class MealChoiceActivity : AppCompatActivity() {
         tvNotice = findViewById(R.id.tvNotice)
         tvNotice2 = findViewById(R.id.tvNotice2)
 
+        // 캘린더뷰 누르고
         calendarChoice.setOnDateChangeListener { view, year, month, date ->
             selectYear = year
             selectMonth = month + 1
             selectDate = date
             var alarm: String =
                 selectYear.toString() + "년 " + selectMonth.toString() + "월 " + selectDate.toString() + "일 " + "기록을 확인합니다."
+            // 날짜 선택 버튼 누르고
             calChoiceButton.setOnClickListener {
                 Toast.makeText(applicationContext, alarm, Toast.LENGTH_SHORT).show()
                 calChoiceButton.visibility = View.GONE
@@ -63,6 +67,7 @@ class MealChoiceActivity : AppCompatActivity() {
                 tvNotice.visibility = View.GONE
                 tvNotice2.visibility = View.GONE
 
+                // DB에서 해당하는 날짜의 기록을 가져와서 레이아웃에 추가한다
 
                 var cursor: Cursor
                 cursor = sqlitedb.rawQuery(
@@ -107,6 +112,7 @@ class MealChoiceActivity : AppCompatActivity() {
                     tvKcal.setTextColor(Color.BLACK)
                     layout_item.addView(tvKcal)
 
+                    // 삭제하고 싶은 기록을 누르면 삭제 화면으로 이동
                     layout_item.setOnClickListener {
                         val intent = Intent(this, MealDelete::class.java)
                         intent.putExtra("intent_year", selectYear.toString())
@@ -137,7 +143,7 @@ class MealChoiceActivity : AppCompatActivity() {
         return true
     }
 
-    //메뉴바 이동
+    // 메뉴바 이동
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.main->{

@@ -111,4 +111,37 @@ class HealthCalActivity : AppCompatActivity() {
             return days.getOrNull(value.toInt()-1) ?: value.toString()
         }
     }
+    //메뉴바 설정
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return true
+    }
+
+    //메뉴바 이동
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.main->{
+                val mainIntent= Intent(this,MainActivity::class.java)
+                startActivity(mainIntent)
+            }
+            R.id.sport->{
+                val sportIntent=Intent(this,HealthListActivity::class.java)
+                startActivity(sportIntent)
+            }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
+            }
+            R.id.water->{
+                val waterIntent=Intent(this,WaterCheck::class.java)
+                startActivity(waterIntent)
+            }
+            R.id.mental->{
+                val mentalIntent=Intent(this,MentalDailyActivity::class.java)
+                startActivity(mentalIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

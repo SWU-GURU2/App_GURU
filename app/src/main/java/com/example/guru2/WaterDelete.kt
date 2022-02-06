@@ -39,30 +39,29 @@ class WaterDelete : AppCompatActivity() {
         WaterDBManger = WaterDBManger(this, "waterlist", null, 1 )
         sqlitedb = WaterDBManger.readableDatabase
 
-//
-//        val intent = intent
-//        str_year = intent.getStringExtra("year").toString()
-//        str_month = intent.getStringExtra("month").toString()
-//        str_date = intent.getStringExtra("date").toString()
-//        str_waterml = intent.getStringExtra("water").toString()
-//
-//        deletedate.text = str_year + "년 " + str_month + "월 " + str_date + "일 "
-//        deleteml.text = str_waterml + "ml"
-//
-//        deletebutton.setOnClickListener {
-//            sqlitedb.execSQL("DELETE FROM waterlist WHERE year = "+str_year + " AND month = " + str_month + " AND date = " + str_date + ";")
-//            sqlitedb.close()
-//            WaterDBManger.close()
-//            Toast.makeText(applicationContext, "기록이 삭제되었습니다.", Toast.LENGTH_SHORT).show()
-//
-//            val intent = Intent(this, WaterCheck::class.java)
-//            startActivity(intent)
-//        }
-//
-//        backbutton.setOnClickListener {
-//            val intent = Intent(this, WaterCheck::class.java)
-//            startActivity(intent)
-//        }
+        val intent = intent
+        str_year = intent.getStringExtra("year").toString()
+        str_month = intent.getStringExtra("month").toString()
+        str_date = intent.getStringExtra("date").toString()
+        str_waterml = intent.getStringExtra("water").toString()
+
+        deletedate.text = str_year + "년 " + str_month + "월 " + str_date + "일 "
+        deleteml.text = str_waterml + "ml"
+
+        deletebutton.setOnClickListener {
+            sqlitedb.execSQL("DELETE FROM waterlist WHERE year = "+str_year + " AND month = " + str_month + " AND date = " + str_date + ";")
+            sqlitedb.close()
+            WaterDBManger.close()
+            Toast.makeText(applicationContext, "기록이 삭제되었습니다.", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, WaterCheck::class.java)
+            startActivity(intent)
+        }
+
+        backbutton.setOnClickListener {
+            val intent = Intent(this, WaterCheck::class.java)
+            startActivity(intent)
+        }
 
 
     }

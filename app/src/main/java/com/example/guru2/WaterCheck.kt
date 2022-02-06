@@ -71,12 +71,13 @@ class WaterCheck : AppCompatActivity() {
             }
 
             layout_item.setOnClickListener{
-                val intent = Intent(this, WaterDelete::class.java)
-                intent.putExtra("year", str_year)
-                intent.putExtra("month", str_month)
-                intent.putExtra("date", str_date)
-                intent.putExtra("water", str_waterml)
-                startActivity(intent)
+//                val intent = Intent(this, WaterDelete::class.java)
+//                intent.putExtra("year", str_year)
+//                intent.putExtra("month", str_month)
+//                intent.putExtra("date", str_date)
+//                intent.putExtra("water", str_waterml)
+//                startActivity(intent)
+                Toast.makeText(applicationContext, "변경하실 수 없습니다", Toast.LENGTH_SHORT).show()
             }
             layout.addView(layout_item)
             num++

@@ -88,13 +88,22 @@ class MentalMediActivity : AppCompatActivity() {
 
         //타이머 설정
         mediSetButton.setOnClickListener {
-            time = secEditText.text.toString().toInt() * 600
-            start()
-            refreshButton.visibility=View.INVISIBLE
+            //시간 입력하지 않은 경우
+            if (secEditText.text.toString().length==0){
+                Toast.makeText(getApplicationContext(), "시간을 작성해주세요.", Toast.LENGTH_LONG).show();
+            }
+            //정상 작동
+            else {
+                time = secEditText.text.toString().toInt() * 600
+                start()
+                refreshButton.visibility = View.INVISIBLE
+            }
         }
+        //정지 버튼
         mediStopButton.setOnClickListener{
             pause()
         }
+        //초기화 버튼
         mediIninButton.setOnClickListener{
             reset()
         }

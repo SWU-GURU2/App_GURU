@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
         waterButton = findViewById(R.id.waterButton)
         waterButton.setOnClickListener {
-            var waterIntent = Intent(this, WaterEdit::class.java)
+            var waterIntent = Intent(this, WaterCheck::class.java)
             startActivity(waterIntent)
         }
         mentalButton=findViewById(R.id.mentalButton)

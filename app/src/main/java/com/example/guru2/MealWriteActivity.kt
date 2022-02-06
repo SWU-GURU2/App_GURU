@@ -150,7 +150,6 @@ class MealWriteActivity : AppCompatActivity() {
             editTextFood.visibility = View.INVISIBLE
             editTextKcal.visibility = View.INVISIBLE
             writeButton.visibility = View.INVISIBLE
-
         }
     }
 

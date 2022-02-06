@@ -100,6 +100,7 @@ class WaterEdit : AppCompatActivity() {
 
         savebutton = findViewById<Button>(R.id.savebutton)
 
+        //캘린더뷰에서 날짜 선택
         calendarView.setOnDateChangeListener { view, year, month, date ->
             selectYear = year
             selectMonth = month + 1
@@ -189,6 +190,7 @@ class WaterEdit : AppCompatActivity() {
                 cups_selected.text = (watercount.toString() + "잔")
                 water_ml_view.text = (str_waterml + "ml")
 
+                //음수량 부족,적당,충분한지 기준에 따라 알려줌
                 when {
                     str_watercount.toInt() <= 3 -> {
                         face_result.setImageResource(R.drawable.sad)
@@ -247,7 +249,7 @@ class WaterEdit : AppCompatActivity() {
 
                 }
             }
-
+            //저장하기 버튼 눌렀을 경우
             savebutton.setOnClickListener {
                 var str_year: String = selectYear.toString()
                 var str_month: String = selectMonth.toString()
@@ -292,6 +294,7 @@ class WaterEdit : AppCompatActivity() {
                 resultbutton.visibility = View.INVISIBLE
                 back_cal_day.visibility = View.INVISIBLE
             }
+            //수정하기 버튼 클릭시
             water_editButton.setOnClickListener {
                 cal_day.visibility = View.INVISIBLE
                 calendarView.visibility = View.INVISIBLE

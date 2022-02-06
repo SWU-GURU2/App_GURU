@@ -36,9 +36,11 @@ class WaterCheck : AppCompatActivity() {
         textView8 = findViewById(R.id.textView8)
         addButton = findViewById(R.id.addButton)
 
+        //커서 연결
         var cursor: Cursor
         cursor = sqlitedb.rawQuery("SELECT * FROM waterlist", null)
 
+        // DB에서 해당하는 날짜의 기록을 가져와서 레이아웃에 추가한다
         var num: Int = 0
         while (cursor.moveToNext()){
             var str_year = cursor.getString(cursor.getColumnIndex("year")).toString()
@@ -53,7 +55,6 @@ class WaterCheck : AppCompatActivity() {
             var tvCalView: TextView = TextView(this)
             tvCalView.text = str_year + "년" + str_month + "월" + str_date + "일 음수량"
             tvCalView.textSize = 20F
-//                tvCalView.setBackgroundColor(Color.parseColor("#8DE4FF"))
             tvCalView.setBackgroundColor(Color.parseColor("#FAF2EE"))
             tvCalView.setTextColor(Color.BLACK)
             layout_item.addView(tvCalView)
@@ -65,19 +66,20 @@ class WaterCheck : AppCompatActivity() {
             tvWater.setTextColor(Color.GRAY)
             layout_item.addView(tvWater)
 
+            //추가하기 floating 버튼 클릭시
             addButton.setOnClickListener {
                 val intent = Intent(this, WaterEdit::class.java)
                 startActivity(intent)
             }
 
+            //삭제할 기록을 누르면 삭제 화면으로 이동
             layout_item.setOnClickListener{
-//                val intent = Intent(this, WaterDelete::class.java)
-//                intent.putExtra("year", str_year)
-//                intent.putExtra("month", str_month)
-//                intent.putExtra("date", str_date)
-//                intent.putExtra("water", str_waterml)
-//                startActivity(intent)
-                Toast.makeText(applicationContext, "변경하실 수 없습니다", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, WaterDelete::class.java)
+                intent.putExtra("year", str_year)
+                intent.putExtra("month", str_month)
+                intent.putExtra("date", str_date)
+                intent.putExtra("water", str_waterml)
+                startActivity(intent)
             }
             layout.addView(layout_item)
             num++

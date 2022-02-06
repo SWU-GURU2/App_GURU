@@ -80,6 +80,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="80dp"
         android:text="※ 1분당 5kcal 소모됩니다."
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

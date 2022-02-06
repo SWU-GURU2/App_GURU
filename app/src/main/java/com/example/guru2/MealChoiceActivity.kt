@@ -125,12 +125,9 @@ class MealChoiceActivity : AppCompatActivity() {
                         intent.putExtra("intent_kcal", str_kcal)
                         startActivity(intent)
                     }
-
                     layout.addView(layout_item)
                     num++
-
                 }
-
                 cursor.close()
                 sqlitedb.close()
                 MealdbManager.close()

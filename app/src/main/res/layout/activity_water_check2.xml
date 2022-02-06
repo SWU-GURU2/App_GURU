@@ -30,7 +30,7 @@
         android:padding="3dp"
         android:textColor="#FFFFFF"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="19sp"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -6,15 +6,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/health"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/health"
         android:supportsRtl="true"
         android:theme="@style/Theme.Guru2">
-        <activity android:name=".WaterErase"></activity>
-        <activity android:name=".WaterDelete" />
-        <activity android:name=".WaterCheck" />
+        <activity android:name=".MentalColorsActivity"></activity>
+        <activity android:name=".MentalMediActivity" />
+        <activity android:name=".MentalDailyActivity" />
+        <activity android:name=".MealDelete" />
+        <activity android:name=".MealChoiceActivity" />
+        <activity android:name=".MealWriteActivity" />
+        <activity android:name=".WaterCheck">
         <activity android:name=".WaterEdit" />
+        <activity android:name=".HealthListActivity"/>
+        <activity android:name=".HealthCalActivity"/>
+        <activity android:name=".HealthRecActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

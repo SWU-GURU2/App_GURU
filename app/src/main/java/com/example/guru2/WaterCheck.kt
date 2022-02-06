@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -83,4 +85,37 @@ class WaterCheck : AppCompatActivity() {
         sqlitedb.close()
         WaterDBManger.close()
     }
+    //메뉴바 추가
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu,menu)
+        return true
+    }
+
+    //메뉴바 이동 하기
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.main->{
+                val mainIntent= Intent(this,MainActivity::class.java)
+                startActivity(mainIntent)
+            }
+            R.id.sport->{
+                val sportIntent=Intent(this,HealthListActivity::class.java)
+                startActivity(sportIntent)
+            }
+            R.id.meal->{
+                val mealIntent=Intent(this,MealWriteActivity::class.java)
+                startActivity(mealIntent)
+            }
+            R.id.water->{
+                val waterIntent=Intent(this,WaterCheck::class.java)
+                startActivity(waterIntent)
+            }
+            R.id.mental->{
+                val mentalIntent=Intent(this,MentalDailyActivity::class.java)
+                startActivity(mentalIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }
+

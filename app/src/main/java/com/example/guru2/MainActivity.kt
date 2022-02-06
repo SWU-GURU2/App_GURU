@@ -10,10 +10,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
+// 메인 창
+
 class MainActivity : AppCompatActivity() {
     var auth: FirebaseAuth? = null
     private lateinit var googleSignInClient: GoogleSignInClient
+    lateinit var mealButton: Button
     lateinit var waterButton: Button
+    lateinit var mentalButton: Button
+    lateinit var healthButton: Button //운동버튼
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,13 +42,29 @@ class MainActivity : AppCompatActivity() {
             startActivity(logoutIntent)
         }
 
-        //음수량 수정 화면
-        val waterButton = findViewById<Button>(R.id.waterButton)
-
-        //버튼 클릭시 할 행동
-        waterButton.setOnClickListener {
-            var intent = Intent(this, WaterCheck::class.java) //인텐트 생성
-            startActivity(intent)
+        //버튼 클릭-> 해당 화면 이동
+        healthButton = findViewById<Button>(R.id.healthButton)
+        healthButton.setOnClickListener{
+            var healthIntent = Intent(this, HealthListActivity::class.java)
+            startActivity(healthIntent)
         }
+
+        mealButton = findViewById(R.id.mealButton)
+        mealButton.setOnClickListener {
+            val mealIntent = Intent(this, MealWriteActivity::class.java)
+            startActivity(mealIntent)
+        }
+        waterButton = findViewById(R.id.waterButton)
+        waterButton.setOnClickListener {
+            var waterIntent = Intent(this, WaterCheck::class.java)
+            startActivity(waterIntent)
+        }
+        mentalButton=findViewById(R.id.mentalButton)
+        mentalButton.setOnClickListener{
+            val mentalIntent=Intent(this,MentalDailyActivity::class.java)
+            startActivity(mentalIntent)
+        }
+
+
     }
 }

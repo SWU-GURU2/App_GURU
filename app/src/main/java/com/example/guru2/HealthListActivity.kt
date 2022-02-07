@@ -46,19 +46,29 @@ class HealthListActivity : AppCompatActivity() {
         dbHealthManager  = DBHealthManager(this,"todayHealth",null,1)
 
         nextButton.setOnClickListener {
+
+            var exer1: String = exercise_1.text.toString()
+            var exer2: String = exercise_2.text.toString()
+            var exer3: String = exercise_3.text.toString()
+            var exer4: String = exercise_4.text.toString()
+            var exer5: String = exercise_5.text.toString()
+
             //모든 값이 입력되지 않으면 다른 화면으로 넘어가지 못하게 확인
-            if(exercise_1.getText().toString().equals("") || exercise_1.getText().toString() == null
-                    || exercise_2.getText().toString().equals("") || exercise_2.getText().toString() == null
-                    || exercise_3.getText().toString().equals("") || exercise_3.getText().toString() == null
-                    || exercise_4.getText().toString().equals("") || exercise_4.getText().toString() == null
-                    || exercise_5.getText().toString().equals("") || exercise_5.getText().toString() == null
+            //확인 방법) 빈값이거나 null값인지 확인
+            if(exer1.equals("") || exer1 == null
+                    || exer2.equals("") || exer2 == null
+                    || exer3.equals("") || exer3 == null
+                    || exer4.equals("") || exer4 == null
+                    || exer5.equals("") || exer5 == null
                     ){
                 Toast.makeText(getApplicationContext(), "운동시간을 모두 작성해주세요.", Toast.LENGTH_LONG).show();
+                //모두 작성하라는 Toast메시지 출력
             }
             else{
+
                 sqlitehealthdb = dbHealthManager.writableDatabase
-                sqlitehealthdb.execSQL("INSERT INTO todayHealth VALUES ('"+exercise_1+"', '"+exercise_2+
-                        "', '"+ exercise_3+"', '"+exercise_4+"', '"+exercise_5+"')")
+                sqlitehealthdb.execSQL("INSERT INTO todayHealth VALUES ('"+exer1+"', '"+exer2+
+                        "', '"+ exer3+"', '"+exer4+"', '"+exer5+"')")
                 sqlitehealthdb.close()
 
                 //HealthCalActivity로 인텐트 값 넘김

@@ -48,23 +48,23 @@ class HealthRecActivity : AppCompatActivity() {
         calendarView.minDate = SimpleDateFormat("yyyyMMdd").parse("20210101").time //캘린더의 가장 최소 날짜설정
         calendarView.maxDate - SimpleDateFormat("yyyyMMdd").parse("20221231").time //캘린더의 가장 마지막 날짜 설정
 
-        calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            if (month < 9) {
-                if (dayOfMonth < 10) {
-                    today.text = "" + year + "-" + 0 + (month + 1) + "-" + 0 + dayOfMonth
+        calendarView.setOnDateChangeListener { view, year, month, day ->
+            if (month < 9) { //월이 한자리 숫자일 경우
+                if (day < 10) { //일이 한자리 숫자일 경우
+                    today.text = "" + year + "-" + 0 + (month + 1) + "-" + 0 + day
 
-                } else {
-                    today.text = "" + year + "-" + 0 + (month + 1) + "-" + dayOfMonth
+                } else { //일이 두자리 숫자일 경우
+                    today.text = "" + year + "-" + 0 + (month + 1) + "-" + day
                 }
-            } else {
-                if (dayOfMonth < 10) {
-                    today.text = "" + year + "-" + (month + 1) + "-" + 0 + dayOfMonth
-                } else {
-                    today.text = "" + year + "-" + 0 + (month + 1) + "-" + dayOfMonth
+            } else { //월이 두자리 수 일 경우
+                if (day < 10) {//일이 한자리 숫자일 경우
+                    today.text = "" + year + "-" + (month + 1) + "-" + 0 + day
+                } else {//일이 두자리 숫자일 경우
+                    today.text = "" + year + "-" + 0 + (month + 1) + "-" + day
                 }
             }
 
-            if (today.text == todayText) {
+            if (today.text == todayText) { //캘린더 클릭날짜가 오늘 날짜와 일치 할 경우
 
                 var exercise_1 = intent.getStringExtra("가슴 운동").toFloat()
                 var exercise_2 = intent.getStringExtra("팔 운동").toFloat()

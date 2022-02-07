@@ -37,7 +37,7 @@ class HealthRecActivity : AppCompatActivity() {
         exec4 = findViewById<TextView>(R.id.exe4)
         exec5 = findViewById<TextView>(R.id.exe5)
 
-        //캘린더뷰 속 클릭 날짜 받아오기
+        //오늘 날짜 받아오기
         var currentTime = LocalDateTime.now();
         val formatter = DateTimeFormatter.ISO_DATE
         val formatted = currentTime.format(formatter)

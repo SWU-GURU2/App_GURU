@@ -10,6 +10,5 @@ class DBHealthManager(context: Context?, name: String?, factory: SQLiteDatabase.
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
-        TODO("Not yet implemented")
     }
 }

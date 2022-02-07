@@ -64,7 +64,5 @@ class MainActivity : AppCompatActivity() {
             val mentalIntent=Intent(this,MentalDailyActivity::class.java)
             startActivity(mentalIntent)
         }
-
-
     }
 }

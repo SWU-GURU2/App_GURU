@@ -15,7 +15,6 @@ import org.w3c.dom.Text
 //식단 기록 보는 화면
 
 class MealChoiceActivity : AppCompatActivity() {
-
     lateinit var MealdbManager: MealDBManager
     lateinit var sqlitedb: SQLiteDatabase
     lateinit var layout: LinearLayout
@@ -125,12 +124,9 @@ class MealChoiceActivity : AppCompatActivity() {
                         intent.putExtra("intent_kcal", str_kcal)
                         startActivity(intent)
                     }
-
                     layout.addView(layout_item)
                     num++
-
                 }
-
                 cursor.close()
                 sqlitedb.close()
                 MealdbManager.close()

@@ -25,7 +25,7 @@
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="24dp"
-        android:background="#F41010"
+        android:background="#F42B27"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/orangeText"
         app:layout_constraintHorizontal_bias="0.048"
@@ -39,7 +39,7 @@
         android:layout_height="140dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
-        android:background="#F57C00"
+        android:background="#FF7043"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,7 +63,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="216dp"
-        android:background="#37A33C"
+        android:background="#9CCC65"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orangeText2"
@@ -76,7 +76,7 @@
         android:layout_height="140dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
-        android:background="#1041F4"
+        android:background="#349EF4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yellowText2" />
 
@@ -86,7 +86,7 @@
         android:layout_height="140dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="28dp"
-        android:background="#512DA8"
+        android:background="#7E57C2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -96,6 +96,7 @@
         android:layout_height="28dp"
         android:layout_marginTop="24dp"
         android:text="나에게 필요한 색을 눌러주세요"
+        android:textAlignment="center"
         android:textColor="#070707"
         android:textSize="18sp"
         android:textStyle="bold"

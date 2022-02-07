@@ -4,27 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MentalMediActivity">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/dailyback" />
-
+    tools:context=".MentalMediActivity"
+    android:background="@drawable/waterbg">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="172dp"
+        android:layout_marginEnd="92dp"
         android:text="오늘의 기분을 알려주세요"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -39,7 +27,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/feeling" />
@@ -48,7 +36,7 @@
         android:id="@+id/vhapButton"
         android:layout_width="98dp"
         android:layout_height="96dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#00FFFFFF"
@@ -64,8 +52,8 @@
         android:id="@+id/soButton"
         android:layout_width="98dp"
         android:layout_height="96dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#00FFFFFF"
         android:drawableTop="@drawable/soso"
         android:text="보통"
@@ -81,7 +69,7 @@
         android:layout_width="98dp"
         android:layout_height="96dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#00FFFFFF"
         android:drawableTop="@drawable/unhap"
         android:text="슬픔"
@@ -95,13 +83,13 @@
         android:id="@+id/unhapButton"
         android:layout_width="98dp"
         android:layout_height="96dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#00FFFFFF"
         android:drawableTop="@drawable/angry"
         android:text="화남"
         android:textColor="#090909"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toEndOf="@+id/sadButton"
         app:layout_constraintTop_toBottomOf="@+id/surpriseButton" />
 
@@ -122,6 +110,7 @@
         android:id="@+id/refreshButton"
         android:layout_width="64dp"
         android:layout_height="61dp"
+        android:layout_marginStart="324dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/main_blue"
         android:drawableTop="@drawable/refresh"
@@ -130,7 +119,7 @@
         app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.611" />
+        app:layout_constraintVertical_bias="0.607" />
 
     <Button
         android:id="@+id/surpriseButton"
@@ -152,7 +141,7 @@
         android:id="@+id/mediImage"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="360dp"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +152,7 @@
         android:id="@+id/meditateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="360dp"
         android:text="마음 비우기 "
         android:textColor="#000000"
@@ -183,87 +172,49 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/a" />
-
-    <EditText
-        android:id="@+id/secEditText"
-        android:layout_width="185dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="76dp"
-        android:backgroundTint="#D8CFCF"
-        android:ems="10"
-        android:hint="분"
-        android:inputType="number"
-        android:textAlignment="viewEnd"
-        android:textSize="14sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mediSetButton"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/mediSetButton"
-        android:layout_width="94dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="152dp"
-        android:textSize="17sp"
-        android:background="@drawable/buttons"
-        android:text="명상 시작"
-        android:textColor="#FFFFFF"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/secEditText" />
+        app:srcCompat="@drawable/a"/>
 
     <Button
         android:id="@+id/mediInitButton"
         android:layout_width="94dp"
         android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginBottom="92dp"
         android:background="@drawable/buttons"
-        android:textSize="17sp"
         android:text="초기화"
         android:textColor="#FFFFFF"
+        android:textSize="17sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/secEditText"
-        app:layout_constraintTop_toBottomOf="@+id/mediStopButton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/mediStopButton"
         android:layout_width="94dp"
         android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="424dp"
         android:background="@drawable/buttons"
-        android:textSize="17sp"
         android:text="정지"
         android:textColor="#FFFFFF"
+        android:textSize="17sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/secEditText"
-        app:layout_constraintTop_toBottomOf="@+id/mediSetButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/minTextView"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="436dp"
-        android:layout_marginEnd="16dp"
-        android:inputType="number"
-        android:text="00"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#000000"
-        android:textSize="30sp"
+    <Button
+        android:id="@+id/mediSetButton"
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="528dp"
+        android:background="@drawable/buttons"
+        android:text="명상 시작"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/cTextview"
-        app:layout_constraintHorizontal_bias="0.706"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -280,7 +231,7 @@
         app:layout_constraintHorizontal_bias="0.368"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771" />
+        app:layout_constraintVertical_bias="0.748" />
 
     <TextView
         android:id="@+id/secTextView"
@@ -297,21 +248,58 @@
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783" />
+        app:layout_constraintVertical_bias="0.76" />
 
     <Button
         android:id="@+id/mediButton"
         android:layout_width="94dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/buttons"
         android:text="건너뛰기"
         android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mediInitButton" />
+
+    <EditText
+        android:id="@+id/secEditText"
+        android:layout_width="185dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="92dp"
+        android:backgroundTint="#D8CFCF"
+        android:ems="10"
+        android:hint="분"
+        android:inputType="number"
+        android:textAlignment="viewEnd"
+        android:textSize="16sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintEnd_toStartOf="@+id/mediSetButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/minTextView"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="number"
+        android:text="00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/cTextview"
+        app:layout_constraintHorizontal_bias="0.706"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

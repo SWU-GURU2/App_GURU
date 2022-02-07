@@ -35,7 +35,7 @@ class MentalDailyActivity: AppCompatActivity() {
         feelingButton=findViewById(R.id.feelingButton)
         colorsButton=findViewById(R.id.colorsButton)
         val secondIntent= Intent(this,MentalMediActivity::class.java)
-        feelingButton.setOnClickListener {  // 버튼 클릭시 할 행동
+        feelingButton.setOnClickListener {
             startActivity(secondIntent)//화면 전환
         }
         val thirdIntent=Intent(this,MentalColorsActivity::class.java)
@@ -73,17 +73,29 @@ class MentalDailyActivity: AppCompatActivity() {
             daydelButton.visibility= View.VISIBLE
             doneButton.visibility=View.VISIBLE
         }
-        //내용저장+db연동
+        //하루 일기 저장+ db저장
         dailyButton.setOnClickListener {
             val str =dailyText.text.toString()
             sqlitedb=  mentalDB.writableDatabase
-            if ( dailyButton.text == "저장") {
+            // 달력 일기 -빈내용 입력시
+            if (str.length == 0 && dailyButton.text == "저장") {
+                Toast.makeText(getApplicationContext(), "당신의 오늘 하루 이야기를 들려주세요", Toast.LENGTH_LONG).show()
+                dailyButton.text = "저장"
+                sqlitedb.execSQL("INSERT INTO myDiary VALUES(" + '"' + fileName + '"' + ", " +
+                        '"' + str + '"' + ");")
+            }
+            // 달력 일기 -정상작동
+            else if (dailyButton.text == "저장") {
                 sqlitedb.execSQL("INSERT INTO myDiary VALUES(" + '"' + fileName + '"' + ", " +
                         '"' + str + '"' + ");")
                 dailyButton.text = "수정"
-            } else  sqlitedb.execSQL("UPDATE myDiary SET content = \"$str\"")
-            sqlitedb.close()
-            Toast.makeText(applicationContext, fileName + "이 저장됨", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, fileName + "이 저장됨", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                sqlitedb.execSQL("UPDATE myDiary SET content = \"$str\"")
+                sqlitedb.close()
+                Toast.makeText(applicationContext, fileName + "이 저장됨", Toast.LENGTH_SHORT).show()
+            }
         }
         doneButton.setOnClickListener{
             dailyButton.visibility=View.INVISIBLE
@@ -104,6 +116,7 @@ class MentalDailyActivity: AppCompatActivity() {
         }
     }
 
+    //db정의
     inner class myDbHelper(context: Context?) : SQLiteOpenHelper(context, "mentalDB", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
             try {
@@ -112,13 +125,11 @@ class MentalDailyActivity: AppCompatActivity() {
                 println(e)
             }
         }
-
         override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
             db.execSQL("DROP TABLE IF EXISTS myDiary")
             onCreate(db)
         }
     }
-
     fun readDiary(fName: String): String? {
         var diaryStr: String? = null
         sqlitedb =  mentalDB.readableDatabase

@@ -8,22 +8,10 @@
     tools:context=".MealDelete">
 
     <TextView
-        android:id="@+id/deleteTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/deleteTitle"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
         android:id="@+id/deleteFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="17sp"
@@ -32,10 +20,34 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
+        android:id="@+id/deleteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="200dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/deleteTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/deleteTitle"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
         android:id="@+id/deleteKcal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="17sp"
@@ -57,26 +69,15 @@
         app:layout_constraintTop_toBottomOf="@+id/deleteKcal" />
 
     <TextView
-        android:id="@+id/deleteTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="200dp"
-        android:text="TextView"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
         android:layout_marginTop="130dp"
         android:background="@drawable/buttons"
         android:text="이 기록을 삭제하시겠습니까?"
+        android:padding="3dp"
         android:textColor="@color/white"
-        android:textSize="17sp"
+        android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
